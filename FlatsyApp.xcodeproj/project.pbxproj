@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A5A0686820E9F0D20082D44E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0686720E9F0D20082D44E /* AppDelegate.swift */; };
+		A5A0686A20E9F0D20082D44E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0686920E9F0D20082D44E /* ViewController.swift */; };
+		A5A0686D20E9F0D20082D44E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A0686B20E9F0D20082D44E /* Main.storyboard */; };
+		A5A0686F20E9F0D30082D44E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5A0686E20E9F0D30082D44E /* Assets.xcassets */; };
+		A5A0687220E9F0D30082D44E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A0687020E9F0D30082D44E /* LaunchScreen.storyboard */; };
+		A5A0687D20E9F0D30082D44E /* FlatsyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0687C20E9F0D30082D44E /* FlatsyAppTests.swift */; };
+		A5A0688820E9F0D30082D44E /* FlatsyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0688720E9F0D30082D44E /* FlatsyAppUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A5A0687920E9F0D30082D44E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5A0685C20E9F0D20082D44E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5A0686320E9F0D20082D44E;
+			remoteInfo = FlatsyApp;
+		};
+		A5A0688420E9F0D30082D44E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A5A0685C20E9F0D20082D44E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A5A0686320E9F0D20082D44E;
+			remoteInfo = FlatsyApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A5A0686420E9F0D20082D44E /* FlatsyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatsyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5A0686720E9F0D20082D44E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A5A0686920E9F0D20082D44E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A5A0686C20E9F0D20082D44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A5A0686E20E9F0D30082D44E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A5A0687120E9F0D30082D44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A5A0687320E9F0D30082D44E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5A0687820E9F0D30082D44E /* FlatsyAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlatsyAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5A0687C20E9F0D30082D44E /* FlatsyAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatsyAppTests.swift; sourceTree = "<group>"; };
+		A5A0687E20E9F0D30082D44E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5A0688320E9F0D30082D44E /* FlatsyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlatsyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5A0688720E9F0D30082D44E /* FlatsyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatsyAppUITests.swift; sourceTree = "<group>"; };
+		A5A0688920E9F0D30082D44E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A5A0686120E9F0D20082D44E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5A0687520E9F0D30082D44E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5A0688020E9F0D30082D44E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A5A0685B20E9F0D20082D44E = {
+			isa = PBXGroup;
+			children = (
+				A5A0686620E9F0D20082D44E /* FlatsyApp */,
+				A5A0687B20E9F0D30082D44E /* FlatsyAppTests */,
+				A5A0688620E9F0D30082D44E /* FlatsyAppUITests */,
+				A5A0686520E9F0D20082D44E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A5A0686520E9F0D20082D44E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A5A0686420E9F0D20082D44E /* FlatsyApp.app */,
+				A5A0687820E9F0D30082D44E /* FlatsyAppTests.xctest */,
+				A5A0688320E9F0D30082D44E /* FlatsyAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A5A0686620E9F0D20082D44E /* FlatsyApp */ = {
+			isa = PBXGroup;
+			children = (
+				A5A0686720E9F0D20082D44E /* AppDelegate.swift */,
+				A5A0686920E9F0D20082D44E /* ViewController.swift */,
+				A5A0686B20E9F0D20082D44E /* Main.storyboard */,
+				A5A0686E20E9F0D30082D44E /* Assets.xcassets */,
+				A5A0687020E9F0D30082D44E /* LaunchScreen.storyboard */,
+				A5A0687320E9F0D30082D44E /* Info.plist */,
+			);
+			path = FlatsyApp;
+			sourceTree = "<group>";
+		};
+		A5A0687B20E9F0D30082D44E /* FlatsyAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				A5A0687C20E9F0D30082D44E /* FlatsyAppTests.swift */,
+				A5A0687E20E9F0D30082D44E /* Info.plist */,
+			);
+			path = FlatsyAppTests;
+			sourceTree = "<group>";
+		};
+		A5A0688620E9F0D30082D44E /* FlatsyAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A5A0688720E9F0D30082D44E /* FlatsyAppUITests.swift */,
+				A5A0688920E9F0D30082D44E /* Info.plist */,
+			);
+			path = FlatsyAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A5A0686320E9F0D20082D44E /* FlatsyApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5A0688C20E9F0D30082D44E /* Build configuration list for PBXNativeTarget "FlatsyApp" */;
+			buildPhases = (
+				A5A0686020E9F0D20082D44E /* Sources */,
+				A5A0686120E9F0D20082D44E /* Frameworks */,
+				A5A0686220E9F0D20082D44E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlatsyApp;
+			productName = FlatsyApp;
+			productReference = A5A0686420E9F0D20082D44E /* FlatsyApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A5A0687720E9F0D30082D44E /* FlatsyAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5A0688F20E9F0D30082D44E /* Build configuration list for PBXNativeTarget "FlatsyAppTests" */;
+			buildPhases = (
+				A5A0687420E9F0D30082D44E /* Sources */,
+				A5A0687520E9F0D30082D44E /* Frameworks */,
+				A5A0687620E9F0D30082D44E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5A0687A20E9F0D30082D44E /* PBXTargetDependency */,
+			);
+			name = FlatsyAppTests;
+			productName = FlatsyAppTests;
+			productReference = A5A0687820E9F0D30082D44E /* FlatsyAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A5A0688220E9F0D30082D44E /* FlatsyAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5A0689220E9F0D30082D44E /* Build configuration list for PBXNativeTarget "FlatsyAppUITests" */;
+			buildPhases = (
+				A5A0687F20E9F0D30082D44E /* Sources */,
+				A5A0688020E9F0D30082D44E /* Frameworks */,
+				A5A0688120E9F0D30082D44E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A5A0688520E9F0D30082D44E /* PBXTargetDependency */,
+			);
+			name = FlatsyAppUITests;
+			productName = FlatsyAppUITests;
+			productReference = A5A0688320E9F0D30082D44E /* FlatsyAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A5A0685C20E9F0D20082D44E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = pkmntr;
+				TargetAttributes = {
+					A5A0686320E9F0D20082D44E = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					A5A0687720E9F0D30082D44E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = A5A0686320E9F0D20082D44E;
+					};
+					A5A0688220E9F0D30082D44E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = A5A0686320E9F0D20082D44E;
+					};
+				};
+			};
+			buildConfigurationList = A5A0685F20E9F0D20082D44E /* Build configuration list for PBXProject "FlatsyApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A5A0685B20E9F0D20082D44E;
+			productRefGroup = A5A0686520E9F0D20082D44E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A5A0686320E9F0D20082D44E /* FlatsyApp */,
+				A5A0687720E9F0D30082D44E /* FlatsyAppTests */,
+				A5A0688220E9F0D30082D44E /* FlatsyAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A5A0686220E9F0D20082D44E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A0687220E9F0D30082D44E /* LaunchScreen.storyboard in Resources */,
+				A5A0686F20E9F0D30082D44E /* Assets.xcassets in Resources */,
+				A5A0686D20E9F0D20082D44E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5A0687620E9F0D30082D44E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5A0688120E9F0D30082D44E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A5A0686020E9F0D20082D44E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A0686A20E9F0D20082D44E /* ViewController.swift in Sources */,
+				A5A0686820E9F0D20082D44E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5A0687420E9F0D30082D44E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A0687D20E9F0D30082D44E /* FlatsyAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A5A0687F20E9F0D30082D44E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5A0688820E9F0D30082D44E /* FlatsyAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A5A0687A20E9F0D30082D44E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5A0686320E9F0D20082D44E /* FlatsyApp */;
+			targetProxy = A5A0687920E9F0D30082D44E /* PBXContainerItemProxy */;
+		};
+		A5A0688520E9F0D30082D44E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A5A0686320E9F0D20082D44E /* FlatsyApp */;
+			targetProxy = A5A0688420E9F0D30082D44E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A5A0686B20E9F0D20082D44E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5A0686C20E9F0D20082D44E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		A5A0687020E9F0D30082D44E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A5A0687120E9F0D30082D44E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A5A0688A20E9F0D30082D44E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A5A0688B20E9F0D30082D44E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A5A0688D20E9F0D30082D44E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlatsyApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlatsyApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A5A0688E20E9F0D30082D44E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlatsyApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlatsyApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A5A0689020E9F0D30082D44E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlatsyAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlatsyAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlatsyApp.app/FlatsyApp";
+			};
+			name = Debug;
+		};
+		A5A0689120E9F0D30082D44E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlatsyAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlatsyAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlatsyApp.app/FlatsyApp";
+			};
+			name = Release;
+		};
+		A5A0689320E9F0D30082D44E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlatsyAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlatsyAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FlatsyApp;
+			};
+			name = Debug;
+		};
+		A5A0689420E9F0D30082D44E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FlatsyAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.FlatsyAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FlatsyApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A5A0685F20E9F0D20082D44E /* Build configuration list for PBXProject "FlatsyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5A0688A20E9F0D30082D44E /* Debug */,
+				A5A0688B20E9F0D30082D44E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5A0688C20E9F0D30082D44E /* Build configuration list for PBXNativeTarget "FlatsyApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5A0688D20E9F0D30082D44E /* Debug */,
+				A5A0688E20E9F0D30082D44E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5A0688F20E9F0D30082D44E /* Build configuration list for PBXNativeTarget "FlatsyAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5A0689020E9F0D30082D44E /* Debug */,
+				A5A0689120E9F0D30082D44E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A5A0689220E9F0D30082D44E /* Build configuration list for PBXNativeTarget "FlatsyAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5A0689320E9F0D30082D44E /* Debug */,
+				A5A0689420E9F0D30082D44E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A5A0685C20E9F0D20082D44E /* Project object */;
+}
