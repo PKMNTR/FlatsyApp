@@ -7,13 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A507B0B420F5C08300F922BC /* PagosAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0B320F5C08300F922BC /* PagosAdminViewController.swift */; };
+		A507B0B620F5C0B500F922BC /* PagosAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0B520F5C0B500F922BC /* PagosAdminTableViewCell.swift */; };
+		A507B0B920F5C33A00F922BC /* FAQAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0B820F5C33A00F922BC /* FAQAdminTableViewCell.swift */; };
+		A507B0BB20F5C37700F922BC /* FAQAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0BA20F5C37700F922BC /* FAQAdminViewController.swift */; };
+		A507B0BE20F5C4A600F922BC /* MiembrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0BD20F5C4A600F922BC /* MiembrosViewController.swift */; };
+		A507B0C020F5C51500F922BC /* MiembrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0BF20F5C51500F922BC /* MiembrosTableViewCell.swift */; };
+		A507B0C520F5C9C100F922BC /* AvisosUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0C420F5C9C100F922BC /* AvisosUserTableViewCell.swift */; };
+		A507B0C720F5CA0A00F922BC /* AvisosUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0C620F5CA0A00F922BC /* AvisosUserViewController.swift */; };
+		A507B0CA20F5CBCE00F922BC /* PagosUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0C920F5CBCE00F922BC /* PagosUserViewController.swift */; };
+		A507B0CC20F5CC1D00F922BC /* PagosUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0CB20F5CC1D00F922BC /* PagosUserTableViewCell.swift */; };
+		A507B0CF20F5CCA800F922BC /* FAQUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0CE20F5CCA800F922BC /* FAQUserTableViewCell.swift */; };
+		A507B0D120F5CCE000F922BC /* FAQUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0D020F5CCE000F922BC /* FAQUserViewController.swift */; };
+		A54BD4A120F46EA900B04FCF /* AvisosAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54BD4A020F46EA900B04FCF /* AvisosAdminViewController.swift */; };
 		A5A0686820E9F0D20082D44E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0686720E9F0D20082D44E /* AppDelegate.swift */; };
-		A5A0686A20E9F0D20082D44E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0686920E9F0D20082D44E /* ViewController.swift */; };
 		A5A0686D20E9F0D20082D44E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A0686B20E9F0D20082D44E /* Main.storyboard */; };
 		A5A0686F20E9F0D30082D44E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5A0686E20E9F0D30082D44E /* Assets.xcassets */; };
 		A5A0687220E9F0D30082D44E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A0687020E9F0D30082D44E /* LaunchScreen.storyboard */; };
 		A5A0687D20E9F0D30082D44E /* FlatsyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0687C20E9F0D30082D44E /* FlatsyAppTests.swift */; };
 		A5A0688820E9F0D30082D44E /* FlatsyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0688720E9F0D30082D44E /* FlatsyAppUITests.swift */; };
+		A5E2600C20F5A35600042DFC /* AvisosAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2600B20F5A35600042DFC /* AvisosAdminTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,9 +47,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A507B0B320F5C08300F922BC /* PagosAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagosAdminViewController.swift; sourceTree = "<group>"; };
+		A507B0B520F5C0B500F922BC /* PagosAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagosAdminTableViewCell.swift; sourceTree = "<group>"; };
+		A507B0B820F5C33A00F922BC /* FAQAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQAdminTableViewCell.swift; sourceTree = "<group>"; };
+		A507B0BA20F5C37700F922BC /* FAQAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQAdminViewController.swift; sourceTree = "<group>"; };
+		A507B0BD20F5C4A600F922BC /* MiembrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiembrosViewController.swift; sourceTree = "<group>"; };
+		A507B0BF20F5C51500F922BC /* MiembrosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiembrosTableViewCell.swift; sourceTree = "<group>"; };
+		A507B0C420F5C9C100F922BC /* AvisosUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvisosUserTableViewCell.swift; sourceTree = "<group>"; };
+		A507B0C620F5CA0A00F922BC /* AvisosUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvisosUserViewController.swift; sourceTree = "<group>"; };
+		A507B0C920F5CBCE00F922BC /* PagosUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagosUserViewController.swift; sourceTree = "<group>"; };
+		A507B0CB20F5CC1D00F922BC /* PagosUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagosUserTableViewCell.swift; sourceTree = "<group>"; };
+		A507B0CE20F5CCA800F922BC /* FAQUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQUserTableViewCell.swift; sourceTree = "<group>"; };
+		A507B0D020F5CCE000F922BC /* FAQUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQUserViewController.swift; sourceTree = "<group>"; };
+		A54BD4A020F46EA900B04FCF /* AvisosAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvisosAdminViewController.swift; sourceTree = "<group>"; };
 		A5A0686420E9F0D20082D44E /* FlatsyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatsyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A0686720E9F0D20082D44E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A5A0686920E9F0D20082D44E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A5A0686C20E9F0D20082D44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5A0686E20E9F0D30082D44E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5A0687120E9F0D30082D44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +72,7 @@
 		A5A0688320E9F0D30082D44E /* FlatsyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlatsyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A0688720E9F0D30082D44E /* FlatsyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatsyAppUITests.swift; sourceTree = "<group>"; };
 		A5A0688920E9F0D30082D44E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5E2600B20F5A35600042DFC /* AvisosAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvisosAdminTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +100,90 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A507B0B120F5BFEB00F922BC /* VistaAvisosAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				A5E2600B20F5A35600042DFC /* AvisosAdminTableViewCell.swift */,
+				A54BD4A020F46EA900B04FCF /* AvisosAdminViewController.swift */,
+			);
+			path = VistaAvisosAdmin;
+			sourceTree = "<group>";
+		};
+		A507B0B220F5C04000F922BC /* VistaPagosAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				A507B0B320F5C08300F922BC /* PagosAdminViewController.swift */,
+				A507B0B520F5C0B500F922BC /* PagosAdminTableViewCell.swift */,
+			);
+			path = VistaPagosAdmin;
+			sourceTree = "<group>";
+		};
+		A507B0B720F5C2F900F922BC /* VistaFAQAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				A507B0B820F5C33A00F922BC /* FAQAdminTableViewCell.swift */,
+				A507B0BA20F5C37700F922BC /* FAQAdminViewController.swift */,
+			);
+			path = VistaFAQAdmin;
+			sourceTree = "<group>";
+		};
+		A507B0BC20F5C42900F922BC /* VistaMiembros */ = {
+			isa = PBXGroup;
+			children = (
+				A507B0BD20F5C4A600F922BC /* MiembrosViewController.swift */,
+				A507B0BF20F5C51500F922BC /* MiembrosTableViewCell.swift */,
+			);
+			path = VistaMiembros;
+			sourceTree = "<group>";
+		};
+		A507B0C120F5C80900F922BC /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				A507B0B120F5BFEB00F922BC /* VistaAvisosAdmin */,
+				A507B0B220F5C04000F922BC /* VistaPagosAdmin */,
+				A507B0B720F5C2F900F922BC /* VistaFAQAdmin */,
+				A507B0BC20F5C42900F922BC /* VistaMiembros */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		A507B0C220F5C89C00F922BC /* User */ = {
+			isa = PBXGroup;
+			children = (
+				A507B0CD20F5CC6100F922BC /* VistaFAQUser */,
+				A507B0C820F5CA9F00F922BC /* VistaPagosUser */,
+				A507B0C320F5C91C00F922BC /* VistaAvisosUser */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		A507B0C320F5C91C00F922BC /* VistaAvisosUser */ = {
+			isa = PBXGroup;
+			children = (
+				A507B0C420F5C9C100F922BC /* AvisosUserTableViewCell.swift */,
+				A507B0C620F5CA0A00F922BC /* AvisosUserViewController.swift */,
+			);
+			path = VistaAvisosUser;
+			sourceTree = "<group>";
+		};
+		A507B0C820F5CA9F00F922BC /* VistaPagosUser */ = {
+			isa = PBXGroup;
+			children = (
+				A507B0C920F5CBCE00F922BC /* PagosUserViewController.swift */,
+				A507B0CB20F5CC1D00F922BC /* PagosUserTableViewCell.swift */,
+			);
+			path = VistaPagosUser;
+			sourceTree = "<group>";
+		};
+		A507B0CD20F5CC6100F922BC /* VistaFAQUser */ = {
+			isa = PBXGroup;
+			children = (
+				A507B0CE20F5CCA800F922BC /* FAQUserTableViewCell.swift */,
+				A507B0D020F5CCE000F922BC /* FAQUserViewController.swift */,
+			);
+			path = VistaFAQUser;
+			sourceTree = "<group>";
+		};
 		A5A0685B20E9F0D20082D44E = {
 			isa = PBXGroup;
 			children = (
@@ -97,8 +207,9 @@
 		A5A0686620E9F0D20082D44E /* FlatsyApp */ = {
 			isa = PBXGroup;
 			children = (
+				A507B0C220F5C89C00F922BC /* User */,
+				A507B0C120F5C80900F922BC /* Admin */,
 				A5A0686720E9F0D20082D44E /* AppDelegate.swift */,
-				A5A0686920E9F0D20082D44E /* ViewController.swift */,
 				A5A0686B20E9F0D20082D44E /* Main.storyboard */,
 				A5A0686E20E9F0D30082D44E /* Assets.xcassets */,
 				A5A0687020E9F0D30082D44E /* LaunchScreen.storyboard */,
@@ -256,8 +367,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5A0686A20E9F0D20082D44E /* ViewController.swift in Sources */,
 				A5A0686820E9F0D20082D44E /* AppDelegate.swift in Sources */,
+				A507B0C520F5C9C100F922BC /* AvisosUserTableViewCell.swift in Sources */,
+				A54BD4A120F46EA900B04FCF /* AvisosAdminViewController.swift in Sources */,
+				A5E2600C20F5A35600042DFC /* AvisosAdminTableViewCell.swift in Sources */,
+				A507B0CC20F5CC1D00F922BC /* PagosUserTableViewCell.swift in Sources */,
+				A507B0CA20F5CBCE00F922BC /* PagosUserViewController.swift in Sources */,
+				A507B0B620F5C0B500F922BC /* PagosAdminTableViewCell.swift in Sources */,
+				A507B0D120F5CCE000F922BC /* FAQUserViewController.swift in Sources */,
+				A507B0BE20F5C4A600F922BC /* MiembrosViewController.swift in Sources */,
+				A507B0C020F5C51500F922BC /* MiembrosTableViewCell.swift in Sources */,
+				A507B0C720F5CA0A00F922BC /* AvisosUserViewController.swift in Sources */,
+				A507B0BB20F5C37700F922BC /* FAQAdminViewController.swift in Sources */,
+				A507B0B920F5C33A00F922BC /* FAQAdminTableViewCell.swift in Sources */,
+				A507B0B420F5C08300F922BC /* PagosAdminViewController.swift in Sources */,
+				A507B0CF20F5CCA800F922BC /* FAQUserTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
