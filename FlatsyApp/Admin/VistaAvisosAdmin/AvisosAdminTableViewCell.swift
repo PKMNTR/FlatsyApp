@@ -12,16 +12,8 @@ class AvisosAdminTableViewCell: UITableViewCell {
     
     @IBOutlet weak var testLabel : UILabel!
 
-    func rellenar(aviso: Aviso = nil, junta: Junta = nil){
-        if aviso == nil && jnuta == nil{
-            return
-        }
-
-        if aviso =! nil{
+    func rellenar(aviso: Aviso){
             testLabel.text = aviso.titulo
-        } else {
-            testLabel.text = junta.titulo
-        }
     }
 
     override func awakeFromNib() {

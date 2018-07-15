@@ -15,19 +15,24 @@ class AvisosAdminViewController: UIViewController {
     @IBOutlet weak var seleccionTipoAviso : UISegmentedControl!
 
     var avisos : [Aviso] = []
-    var documents : [DocumentSnapshot]= []
+    var documents : [DocumentSnapshot] = []
     var listener : ListenerRegistration!
 
-    var query : Query?(
+    var query : Query?{
         didSet {
             if let listener = listener{
-                listener.remove
+                listener.remove()
             }
         }   
-    )
+    }
 
     func baseQuery()->Query{
-        return Firestore.firestore().collection(avisos).limit(to:50)
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+
+        return Firestore.firestore().collection("comunicados").limit(to:50)
     }
 
     let data = ["uno","dos"]
@@ -37,31 +42,35 @@ class AvisosAdminViewController: UIViewController {
 
         avisosTable.dataSource = self
         avisosTable.delegate = self
+        
+        self.query = baseQuery()
+        
+       
     }
 
-    override func viewWillAppear()
-    {
-        self.listener = query?.addSnapshotListener{(documents, error) in 
+    override func viewWillAppear(_ animated: Bool) {
+        self.listener = query?.addSnapshotListener{(documents, error) in
             guard let snapshot = documents else{
                 print("error")
                 return
             }
-
+            
             let results = snapshot.documents.map{(document) -> Aviso in
                 if let result = Aviso(diccionario: document.data()){
                     return result
-                } 
+                }
                 else {
-                    print("error")
+                    fatalError("unable to initialize with \(document.data()) " )
                 }
             }
-
+            
             self.avisos = results
             self.documents = snapshot.documents
-
-            self.avisosTable.reloadData
+            
+            self.avisosTable.reloadData()
         }
-    }    
+    }
+   
     @IBAction func segmentedControlAction(sender: AnyObject){
         if seleccionTipoAviso.selectedSegmentIndex == 0{
             muestraAvisos()
@@ -92,6 +101,7 @@ extension AvisosAdminViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = avisosTable.dequeueReusableCell(withIdentifier: "AvisoAdminCell") as! AvisosAdminTableViewCell
         let aviso = avisos[indexPath.row]
+        print(aviso.titulo)
         cell.rellenar(aviso: aviso)
         return cell
     }
