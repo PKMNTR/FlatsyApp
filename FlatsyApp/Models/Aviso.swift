@@ -11,8 +11,6 @@ struct Aviso {
     var fecha : Date
     var titulo : String
     
-    
-
     var diccionario : [String: Any] {
         return [
             "comunidad" : comunidad,

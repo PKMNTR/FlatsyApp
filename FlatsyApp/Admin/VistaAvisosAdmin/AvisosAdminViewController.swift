@@ -32,25 +32,44 @@ class AvisosAdminViewController: UIViewController {
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
 
-        return Firestore.firestore().collection("comunicados").limit(to:50)
+        return Firestore.firestore().collection("comunicados")
     }
 
-    let data = ["uno","dos"]
+    func baseQueryAvisos()->Query{
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
 
-    override func viewDidLoad() {
+        return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: true)
+    }
+
+    func baseQueryJuntas()->Query{
+        let db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+
+        return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: false)
+    }
+
+   override func viewDidLoad() {
         super.viewDidLoad()
 
         avisosTable.dataSource = self
         avisosTable.delegate = self
         
-        self.query = baseQuery()
-        
-       
+        self.query = baseQuery()       
     }
 
     override func viewWillAppear(_ animated: Bool) {
         self.listener = query?.addSnapshotListener{(documents, error) in
             guard let snapshot = documents else{
+                print("error")
+                return
+            }
+            
+            let results = snapshot.documents.map{(document) -> Aviso in
                 print("error")
                 return
             }
@@ -87,9 +106,15 @@ class AvisosAdminViewController: UIViewController {
 
     }
 
-     override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "detailAvisoAdminView") {
+            var vc = segue.destinationViewController as DetailAvisoAdminViewController 
+            vc.aviso = avisos[indexPath.row]
+            vc.avisoReference = documents[indexPath.row].reference
+        }      
     }
 }
 
@@ -108,5 +133,7 @@ extension AvisosAdminViewController: UITableViewDataSource{
 }
 
 extension AvisosAdminViewController: UITableViewDelegate{
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+
+    }
 }
