@@ -7,10 +7,29 @@
 //
 
 import UIKit
+import Firebase
 
 class AvisosAdminViewController: UIViewController {
     
     @IBOutlet weak var avisosTable : UITableView!
+    @IBOutlet weak var seleccionTipoAviso : UISegmentedControl!
+
+    var avisos : [Aviso] = []
+    var documents : [DocumentSnapshot]= []
+    var listener : ListenerRegistration!
+
+    var query : Query?(
+        didSet {
+            if let listener = listener{
+                listener.remove
+            }
+        }   
+    )
+
+    func baseQuery()->Query{
+        return Firestore.firestore().collection(avisos).limit(to:50)
+    }
+
     let data = ["uno","dos"]
 
     override func viewDidLoad() {
@@ -20,32 +39,60 @@ class AvisosAdminViewController: UIViewController {
         avisosTable.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
+    override func viewWillAppear()
+    {
+        self.listener = query?.addSnapshotListener{(documents, error) in 
+            guard let snapshot = documents else{
+                print("error")
+                return
+            }
+
+            let results = snapshot.documents.map{(document) -> Aviso in
+                if let result = Aviso(diccionario: document.data()){
+                    return result
+                } 
+                else {
+                    print("error")
+                }
+            }
+
+            self.avisos = results
+            self.documents = snapshot.documents
+
+            self.avisosTable.reloadData
+        }
+    }    
+    @IBAction func segmentedControlAction(sender: AnyObject){
+        if seleccionTipoAviso.selectedSegmentIndex == 0{
+            muestraAvisos()
+        } else{
+            muestraJuntas()
+        }
+    }
+
+    func muestraAvisos(){
+
+    }
+
+    func muestraJuntas(){
+
+    }
+
+     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension AvisosAdminViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return avisos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = avisosTable.dequeueReusableCell(withIdentifier: "AvisoAdminCell") as! AvisosAdminTableViewCell
-        cell.testLabel.text = data[indexPath.row]
+        let aviso = avisos[indexPath.row]
+        cell.rellenar(aviso: aviso)
         return cell
     }
 }
