@@ -15,14 +15,14 @@ class DetailAvisoAdminViewController: UIViewController {
     var avisoReference: DocumentReference?
 //
     @IBOutlet weak var tituloField: UITextField!
-    @IBOutlet weak var descripcionField: UITextField!
+    @IBOutlet weak var descripcionField: UITextView!
     @IBOutlet weak var fechaField: UIDatePicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tituloField.text = aviso?.titulo
-        descripcionField.text = aviso?.titulo
+        descripcionField.text = aviso?.descripcion
         if let fecha = aviso?.fecha{
              fechaField.setDate(fecha, animated: true)
         }
@@ -34,25 +34,25 @@ class DetailAvisoAdminViewController: UIViewController {
    {
        guard let titulo = tituloField.text,
            let descripcion = descripcionField.text,
-           let fecha = fechaField.datePicker?.date.timeIntervalsince1970
+           let fecha = fechaField?.date.timeIntervalSince1970
            else {return}
 
        
        let aviso = Aviso(
            comunidad:"asadas",
-           titulo: titulo,
            descripcion: descripcion,
-           fecha: fecha,
+           fecha: NSDate(timeIntervalSince1970: fecha) as Date,
+           titulo: titulo
        )
 
-       avisoReference.setData(data: aviso.diccionario){ err in
-           if let err = err{
-               print("Error agregando nuevo aviso: \(err)")
-           } else {
-               print("Document added with ID: \(ref!.documentID)")
-           } 
-       }
-   }
+    avisoReference?.setData(aviso.diccionario, completion: { (error) in
+        if let error = error{
+            print("Error agregando nuevo aviso: \(error)")
+        } else {
+            print("Document updated")
+        }
+    })
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

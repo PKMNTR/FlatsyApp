@@ -12,7 +12,7 @@ import Firebase
 class AddAvisoViewController: UIViewController {
 
     @IBOutlet weak var tituloField: UITextField!
-    @IBOutlet weak var descripcionField: UITextField!
+    @IBOutlet weak var descripcionField: UITextView!
     @IBOutlet weak var fechaField: UIDatePicker!
     @IBOutlet weak var juntaSwitch: UISwitch!
     
