@@ -61,6 +61,8 @@ class AvisosAdminViewController: UIViewController {
 
         avisosTable.dataSource = self
         avisosTable.delegate = self
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         self.query = baseQuery()       
     }
@@ -131,10 +133,17 @@ extension AvisosAdminViewController: UITableViewDataSource{
 }
 
 extension AvisosAdminViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         tableView.deselectRow(at: indexPath, animated: true)
         
         selectedAviso = avisos[indexPath.row]
         selectedDocumentRef = documents[indexPath.row].reference
     }
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+        let aviso = documents[indexPath.row]
+        aviso.reference.delete()
+    }
+  }
 }
