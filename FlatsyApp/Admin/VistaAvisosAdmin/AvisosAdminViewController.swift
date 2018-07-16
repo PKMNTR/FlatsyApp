@@ -17,7 +17,10 @@ class AvisosAdminViewController: UIViewController {
     var avisos : [Aviso] = []
     var documents : [DocumentSnapshot] = []
     var listener : ListenerRegistration!
-
+    
+    var selectedAviso: Aviso?
+    var selectedDocumentRef: DocumentReference?
+    
     var query : Query?{
         didSet {
             if let listener = listener{
@@ -68,12 +71,7 @@ class AvisosAdminViewController: UIViewController {
                 print("error")
                 return
             }
-            
-            let results = snapshot.documents.map{(document) -> Aviso in
-                print("error")
-                return
-            }
-            
+                        
             let results = snapshot.documents.map{(document) -> Aviso in
                 if let result = Aviso(diccionario: document.data()){
                     return result
@@ -110,11 +108,11 @@ class AvisosAdminViewController: UIViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "detailAvisoAdminView") {
-            var vc = segue.destinationViewController as DetailAvisoAdminViewController 
-            vc.aviso = avisos[indexPath.row]
-            vc.avisoReference = documents[indexPath.row].reference
-        }      
+        if(segue.identifier == "detailAvisoAdmin") {
+            let vc = segue.destination as! DetailAvisoAdminViewController
+            vc.aviso = selectedAviso
+            vc.avisoReference = selectedDocumentRef
+        }
     }
 }
 
@@ -134,6 +132,9 @@ extension AvisosAdminViewController: UITableViewDataSource{
 
 extension AvisosAdminViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        selectedAviso = avisos[indexPath.row]
+        selectedDocumentRef = documents[indexPath.row].reference
     }
 }

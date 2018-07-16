@@ -7,45 +7,52 @@
 //
 
 import UIKit
+import Firebase
 
 class DetailAvisoAdminViewController: UIViewController {
 
     var aviso: Aviso?
     var avisoReference: DocumentReference?
-
+//
     @IBOutlet weak var tituloField: UITextField!
     @IBOutlet weak var descripcionField: UITextField!
     @IBOutlet weak var fechaField: UIDatePicker!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        tituloField.text = aviso?.titulo
+        descripcionField.text = aviso?.titulo
+        if let fecha = aviso?.fecha{
+             fechaField.setDate(fecha, animated: true)
+        }
+       
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func onTapAddAviso(_ sender: Any)
-    {
-        guard let titulo = tituloField.text,
-            let descripcion = descripcionField.text,
-            let fecha = fechaField.datePicker?.date.timeIntervalsince1970
-            else {return}
-
-        
-        let aviso = Aviso(
-            comunidad:"asadas",
-            titulo: titulo,
-            descripcion: descripcion,
-            fecha: fecha,
-        )
-
-        avisoReference.setData(data: aviso.diccionario){ err in
-            if let err = err{
-                print("Error agregando nuevo aviso: \(err)")
-            } else {
-                print("Document added with ID: \(ref!.documentID)")
-            } 
-        }
-    }
+//    @IBAction func onTapAddAviso(_ sender: Any)
+//    {
+//        guard let titulo = tituloField.text,
+//            let descripcion = descripcionField.text,
+//            let fecha = fechaField.datePicker?.date.timeIntervalsince1970
+//            else {return}
+//
+//        
+//        let aviso = Aviso(
+//            comunidad:"asadas",
+//            titulo: titulo,
+//            descripcion: descripcion,
+//            fecha: fecha,
+//        )
+//
+//        avisoReference.setData(data: aviso.diccionario){ err in
+//            if let err = err{
+//                print("Error agregando nuevo aviso: \(err)")
+//            } else {
+//                print("Document added with ID: \(ref!.documentID)")
+//            } 
+//        }
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

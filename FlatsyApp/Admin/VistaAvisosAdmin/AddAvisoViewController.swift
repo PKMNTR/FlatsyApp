@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Firebase
 
 class AddAvisoViewController: UIViewController {
 
     @IBOutlet weak var tituloField: UITextField!
     @IBOutlet weak var descripcionField: UITextField!
     @IBOutlet weak var fechaField: UIDatePicker!
-    @IBOutlet weak var tituloField: UITextField!
+    @IBOutlet weak var juntaSwitch: UISwitch!
+    
+    var ref: DocumentReference! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,23 +26,23 @@ class AddAvisoViewController: UIViewController {
     {
         guard let titulo = tituloField.text,
             let descripcion = descripcionField.text,
-            let fecha = fechaField.datePicker?.date.timeIntervalsince1970
+            let fecha = fechaField?.date.timeIntervalSince1970
             else {return}
 
-        let collecttion = Firestore.firestore().collection("comunicados")
+        let collection = Firestore.firestore().collection("comunicados")
 
         let aviso = Aviso(
             comunidad:"asadas",
-            titulo: titulo,
             descripcion: descripcion,
-            fecha: fecha,
+            fecha: NSDate(timeIntervalSince1970: fecha) as Date,
+            titulo: titulo
         )
 
-        let restaurantRef = collection.addDocument(data: aviso.diccionario){ err in
+        ref = collection.addDocument(data: aviso.diccionario){ err in
             if let err = err{
                 print("Error agregando nuevo aviso: \(err)")
             } else {
-                print("Document added with ID: \(ref!.documentID)")
+                print("Document added with ID: \(self.ref!.documentID)")
             } 
         }
     }
