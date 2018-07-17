@@ -21,37 +21,37 @@ class DetailPagoAdminViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tituloField.text = pago?.titulo
-        descripcionField.text = pago?.descripcion
-        if let fecha = pago?.fecha{
-             fechaField.setDate(fecha, animated: true)
-        }
+//        tituloField.text = pago?.titulo
+//        descripcionField.text = pago?.descripcion
+//        if let fecha = pago?.fecha{
+//             fechaField.setDate(fecha, animated: true)
+//        }
        
         // Do any additional setup after loading the view.
     }
 
    @IBAction func onTapUpdatePago(_ sender: Any)
    {
-       guard let titulo = tituloField.text,
-           let descripcion = descripcionField.text,
-           let fecha = fechaField?.date.timeIntervalSince1970
-           else {return}
-
-       
-       let pago = Pago(
-           comunidad:"asadas",
-           descripcion: descripcion,
-           fecha: NSDate(timeIntervalSince1970: fecha) as Date,
-           titulo: titulo
-       )
-
-        pagoReference?.setData(pago.diccionario, completion: { (error) in
-        if let error = error{
-            print("Error agregando nuevo aviso: \(error)")
-        } else {
-            print("Document updated")
-        }
-    })
+//       guard let titulo = tituloField.text,
+//           let descripcion = descripcionField.text,
+//           let fecha = fechaField?.date.timeIntervalSince1970
+//           else {return}
+//
+//       
+//       let pago = Pago(
+//           comunidad:"asadas",
+//           descripcion: descripcion,
+//           fecha: NSDate(timeIntervalSince1970: fecha) as Date,
+//           titulo: titulo
+//       )
+//
+//        pagoReference?.setData(pago.diccionario, completion: { (error) in
+//        if let error = error{
+//            print("Error agregando nuevo aviso: \(error)")
+//        } else {
+//            print("Document updated")
+//        }
+//    })
     }
 
     override func didReceiveMemoryWarning() {

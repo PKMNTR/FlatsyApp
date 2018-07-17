@@ -13,8 +13,8 @@ class AddPagoViewController: UIViewController {
 
     @IBOutlet weak var conceptoField: UITextField!
     @IBOutlet weak var descripcionField: UITextView!
-    @IBOutlet weak var fechaField: UIDatePicker!
-    @IBOutlet weak var recurrenteSwitch: UISwitch!
+    @IBOutlet weak var precioField: UITextField!
+    @IBOutlet weak var diaPagoField: UITextField!
     
     var ref: DocumentReference! = nil
 
@@ -24,18 +24,22 @@ class AddPagoViewController: UIViewController {
 
     @IBAction func onTapAddAviso(_ sender: Any)
     {
-        guard let titulo = tituloField.text,
+        guard let concepto = conceptoField.text,
             let descripcion = descripcionField.text,
-            let fecha = fechaField?.date.timeIntervalSince1970
+            let precio = precioField.text,
+            let diaPago = diaPagoField.text
             else {return}
 
         let collection = Firestore.firestore().collection("pagos")
 
         let pago = Pago(
             comunidad:"asadas",
+            concepto: concepto,
+            dia_pago: Int(diaPago)!,
+            precio: Double(precio)!,
             descripcion: descripcion,
-            fecha: NSDate(timeIntervalSince1970: fecha) as Date,
-            titulo: titulo
+            recurrente: true,
+            fecha: NSDate(timeIntervalSince1970: NSDate().timeIntervalSince1970) as Date
         )
 
         ref = collection.addDocument(data: pago.diccionario){ err in
@@ -43,7 +47,7 @@ class AddPagoViewController: UIViewController {
                 print("Error agregando nuevo aviso: \(err)")
             } else {
                 print("Document added with ID: \(self.ref!.documentID)")
-            } 
+            }
         }
     }
 

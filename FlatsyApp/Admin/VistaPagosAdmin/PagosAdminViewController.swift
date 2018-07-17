@@ -14,7 +14,7 @@ class PagosAdminViewController: UIViewController {
      @IBOutlet weak var pagosTable : UITableView!
      @IBOutlet weak var seleccionTipoPago : UISegmentedControl!
 
-    var pagos : [Pagos] = []
+    var pagos : [Pago] = []
     var documents : [DocumentSnapshot] = []
     var listener : ListenerRegistration!
     

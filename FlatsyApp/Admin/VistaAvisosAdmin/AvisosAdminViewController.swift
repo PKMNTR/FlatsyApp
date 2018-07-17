@@ -134,7 +134,7 @@ extension AvisosAdminViewController: UITableViewDelegate{
         selectedAviso = avisos[indexPath.row]
         selectedDocumentRef = documents[indexPath.row].reference
 
-        performSegueWithIdentifier("test", sender: self)
+    performSegue(withIdentifier: "detailAvisoAdmin", sender: self)
 
     tableView.deselectRow(at: indexPath, animated: true)
     }

@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		29CA50C50563FB9C3EAE97EB /* Pods_FlatsyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152DFFF4F463EF7CE82F0F13 /* Pods_FlatsyAppTests.framework */; };
-		A507B0B420F5C08300F922BC /* PagosAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0B320F5C08300F922BC /* PagosAdminViewController.swift */; };
-		A507B0B620F5C0B500F922BC /* PagosAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0B520F5C0B500F922BC /* PagosAdminTableViewCell.swift */; };
 		A507B0B920F5C33A00F922BC /* FAQAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0B820F5C33A00F922BC /* FAQAdminTableViewCell.swift */; };
 		A507B0BB20F5C37700F922BC /* FAQAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0BA20F5C37700F922BC /* FAQAdminViewController.swift */; };
 		A507B0BE20F5C4A600F922BC /* MiembrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0BD20F5C4A600F922BC /* MiembrosViewController.swift */; };
@@ -20,12 +18,17 @@
 		A507B0CC20F5CC1D00F922BC /* PagosUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0CB20F5CC1D00F922BC /* PagosUserTableViewCell.swift */; };
 		A507B0CF20F5CCA800F922BC /* FAQUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0CE20F5CCA800F922BC /* FAQUserTableViewCell.swift */; };
 		A507B0D120F5CCE000F922BC /* FAQUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0D020F5CCE000F922BC /* FAQUserViewController.swift */; };
-		A559D8E620FB114000E02955 /* Aviso.swift in Sources */ = {isa = PBXBuildFile; fileRef = A559D8E520FB114000E02955 /* Aviso.swift */; };
 		A559D8E820FB20D600E02955 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A559D8E720FB20D600E02955 /* GoogleService-Info.plist */; };
 		A560249F20FC155600374AE6 /* AvisosAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560249B20FC155600374AE6 /* AvisosAdminTableViewCell.swift */; };
 		A56024A020FC155600374AE6 /* AvisosAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560249C20FC155600374AE6 /* AvisosAdminViewController.swift */; };
 		A56024A120FC155600374AE6 /* DetailAvisoAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560249D20FC155600374AE6 /* DetailAvisoAdminViewController.swift */; };
 		A56024A220FC155600374AE6 /* AddAvisoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560249E20FC155600374AE6 /* AddAvisoViewController.swift */; };
+		A5872AF320FD94E00027582B /* Pago.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5872AF120FD94E00027582B /* Pago.swift */; };
+		A5872AF420FD94E00027582B /* Aviso.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5872AF220FD94E00027582B /* Aviso.swift */; };
+		A5872AF920FD95160027582B /* DetailPagoAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5872AF520FD95150027582B /* DetailPagoAdminViewController.swift */; };
+		A5872AFA20FD95160027582B /* PagosAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5872AF620FD95150027582B /* PagosAdminTableViewCell.swift */; };
+		A5872AFB20FD95160027582B /* AddPagoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5872AF720FD95160027582B /* AddPagoViewController.swift */; };
+		A5872AFC20FD95160027582B /* PagosAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5872AF820FD95160027582B /* PagosAdminViewController.swift */; };
 		A5A0686820E9F0D20082D44E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0686720E9F0D20082D44E /* AppDelegate.swift */; };
 		A5A0686D20E9F0D20082D44E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A0686B20E9F0D20082D44E /* Main.storyboard */; };
 		A5A0686F20E9F0D30082D44E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5A0686E20E9F0D30082D44E /* Assets.xcassets */; };
@@ -62,8 +65,6 @@
 		3B1D592419C41D2E188855C3 /* Pods-FlatsyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlatsyAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlatsyAppTests/Pods-FlatsyAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		845EBDE7183A3D110CD0658E /* Pods_FlatsyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlatsyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F222683036BFAB78F33284F /* Pods-FlatsyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlatsyApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlatsyApp/Pods-FlatsyApp.debug.xcconfig"; sourceTree = "<group>"; };
-		A507B0B320F5C08300F922BC /* PagosAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagosAdminViewController.swift; sourceTree = "<group>"; };
-		A507B0B520F5C0B500F922BC /* PagosAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagosAdminTableViewCell.swift; sourceTree = "<group>"; };
 		A507B0B820F5C33A00F922BC /* FAQAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQAdminTableViewCell.swift; sourceTree = "<group>"; };
 		A507B0BA20F5C37700F922BC /* FAQAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQAdminViewController.swift; sourceTree = "<group>"; };
 		A507B0BD20F5C4A600F922BC /* MiembrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiembrosViewController.swift; sourceTree = "<group>"; };
@@ -74,12 +75,17 @@
 		A507B0CB20F5CC1D00F922BC /* PagosUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagosUserTableViewCell.swift; sourceTree = "<group>"; };
 		A507B0CE20F5CCA800F922BC /* FAQUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQUserTableViewCell.swift; sourceTree = "<group>"; };
 		A507B0D020F5CCE000F922BC /* FAQUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQUserViewController.swift; sourceTree = "<group>"; };
-		A559D8E520FB114000E02955 /* Aviso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aviso.swift; sourceTree = "<group>"; };
 		A559D8E720FB20D600E02955 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A560249B20FC155600374AE6 /* AvisosAdminTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvisosAdminTableViewCell.swift; sourceTree = "<group>"; };
 		A560249C20FC155600374AE6 /* AvisosAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvisosAdminViewController.swift; sourceTree = "<group>"; };
 		A560249D20FC155600374AE6 /* DetailAvisoAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailAvisoAdminViewController.swift; sourceTree = "<group>"; };
 		A560249E20FC155600374AE6 /* AddAvisoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAvisoViewController.swift; sourceTree = "<group>"; };
+		A5872AF120FD94E00027582B /* Pago.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pago.swift; sourceTree = "<group>"; };
+		A5872AF220FD94E00027582B /* Aviso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aviso.swift; sourceTree = "<group>"; };
+		A5872AF520FD95150027582B /* DetailPagoAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPagoAdminViewController.swift; sourceTree = "<group>"; };
+		A5872AF620FD95150027582B /* PagosAdminTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagosAdminTableViewCell.swift; sourceTree = "<group>"; };
+		A5872AF720FD95160027582B /* AddPagoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPagoViewController.swift; sourceTree = "<group>"; };
+		A5872AF820FD95160027582B /* PagosAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagosAdminViewController.swift; sourceTree = "<group>"; };
 		A5A0686420E9F0D20082D44E /* FlatsyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlatsyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A0686720E9F0D20082D44E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5A0686C20E9F0D20082D44E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -137,8 +143,10 @@
 		A507B0B220F5C04000F922BC /* VistaPagosAdmin */ = {
 			isa = PBXGroup;
 			children = (
-				A507B0B320F5C08300F922BC /* PagosAdminViewController.swift */,
-				A507B0B520F5C0B500F922BC /* PagosAdminTableViewCell.swift */,
+				A5872AF720FD95160027582B /* AddPagoViewController.swift */,
+				A5872AF520FD95150027582B /* DetailPagoAdminViewController.swift */,
+				A5872AF620FD95150027582B /* PagosAdminTableViewCell.swift */,
+				A5872AF820FD95160027582B /* PagosAdminViewController.swift */,
 			);
 			path = VistaPagosAdmin;
 			sourceTree = "<group>";
@@ -212,7 +220,8 @@
 		A559D8E420FB112900E02955 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				A559D8E520FB114000E02955 /* Aviso.swift */,
+				A5872AF220FD94E00027582B /* Aviso.swift */,
+				A5872AF120FD94E00027582B /* Pago.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -530,18 +539,21 @@
 				A56024A120FC155600374AE6 /* DetailAvisoAdminViewController.swift in Sources */,
 				A507B0CC20F5CC1D00F922BC /* PagosUserTableViewCell.swift in Sources */,
 				A507B0CA20F5CBCE00F922BC /* PagosUserViewController.swift in Sources */,
-				A507B0B620F5C0B500F922BC /* PagosAdminTableViewCell.swift in Sources */,
 				A507B0D120F5CCE000F922BC /* FAQUserViewController.swift in Sources */,
 				A56024A220FC155600374AE6 /* AddAvisoViewController.swift in Sources */,
-				A559D8E620FB114000E02955 /* Aviso.swift in Sources */,
 				A56024A020FC155600374AE6 /* AvisosAdminViewController.swift in Sources */,
+				A5872AFA20FD95160027582B /* PagosAdminTableViewCell.swift in Sources */,
 				A507B0BE20F5C4A600F922BC /* MiembrosViewController.swift in Sources */,
 				A560249F20FC155600374AE6 /* AvisosAdminTableViewCell.swift in Sources */,
+				A5872AFC20FD95160027582B /* PagosAdminViewController.swift in Sources */,
+				A5872AF920FD95160027582B /* DetailPagoAdminViewController.swift in Sources */,
+				A5872AF420FD94E00027582B /* Aviso.swift in Sources */,
 				A507B0C020F5C51500F922BC /* MiembrosTableViewCell.swift in Sources */,
 				A507B0C720F5CA0A00F922BC /* AvisosUserViewController.swift in Sources */,
 				A507B0BB20F5C37700F922BC /* FAQAdminViewController.swift in Sources */,
+				A5872AF320FD94E00027582B /* Pago.swift in Sources */,
+				A5872AFB20FD95160027582B /* AddPagoViewController.swift in Sources */,
 				A507B0B920F5C33A00F922BC /* FAQAdminTableViewCell.swift in Sources */,
-				A507B0B420F5C08300F922BC /* PagosAdminViewController.swift in Sources */,
 				A507B0CF20F5CCA800F922BC /* FAQUserTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
