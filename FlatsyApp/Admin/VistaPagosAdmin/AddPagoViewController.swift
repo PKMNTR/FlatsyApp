@@ -14,7 +14,7 @@ class AddPagoViewController: UIViewController {
     @IBOutlet weak var conceptoField: UITextField!
     @IBOutlet weak var descripcionField: UITextView!
     @IBOutlet weak var fechaField: UIDatePicker!
-    @IBOutlet weak var juntaSwitch: UISwitch!
+    @IBOutlet weak var recurrenteSwitch: UISwitch!
     
     var ref: DocumentReference! = nil
 
@@ -29,16 +29,16 @@ class AddPagoViewController: UIViewController {
             let fecha = fechaField?.date.timeIntervalSince1970
             else {return}
 
-        let collection = Firestore.firestore().collection("comunicados")
+        let collection = Firestore.firestore().collection("pagos")
 
-        let aviso = Aviso(
+        let pago = Pago(
             comunidad:"asadas",
             descripcion: descripcion,
             fecha: NSDate(timeIntervalSince1970: fecha) as Date,
             titulo: titulo
         )
 
-        ref = collection.addDocument(data: aviso.diccionario){ err in
+        ref = collection.addDocument(data: pago.diccionario){ err in
             if let err = err{
                 print("Error agregando nuevo aviso: \(err)")
             } else {

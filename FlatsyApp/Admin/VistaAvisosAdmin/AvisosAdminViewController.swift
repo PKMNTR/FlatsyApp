@@ -106,16 +106,13 @@ class AvisosAdminViewController: UIViewController {
 
     }
 
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "detailAvisoAdmin") {
             let vc = segue.destination as! DetailAvisoAdminViewController
             vc.aviso = selectedAviso
             vc.avisoReference = selectedDocumentRef
         }
-    }
+    }    
 }
 
 extension AvisosAdminViewController: UITableViewDataSource{
@@ -136,7 +133,9 @@ extension AvisosAdminViewController: UITableViewDelegate{
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         selectedAviso = avisos[indexPath.row]
         selectedDocumentRef = documents[indexPath.row].reference
-    
+
+        performSegueWithIdentifier("test", sender: self)
+
     tableView.deselectRow(at: indexPath, animated: true)
     }
 

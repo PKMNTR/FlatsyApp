@@ -57,7 +57,7 @@ class PagosAdminViewController: UIViewController {
             }
                         
             let results = snapshot.documents.map{(document) -> Pago in
-                if let result = Aviso(diccionario: document.data()){
+                if let result = Pago(diccionario: document.data()){
                     return result
                 }
                 else {
@@ -76,6 +76,14 @@ class PagosAdminViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "detailPagoAdmin") {
+            let vc = segue.destination as! DetailPagoAdminViewController
+            vc.pago = selectedPago
+            vc.pagoReference = selectedDocumentRef
+        }
+    } 
 }
 
 extension PagosAdminViewController: UITableViewDataSource{
