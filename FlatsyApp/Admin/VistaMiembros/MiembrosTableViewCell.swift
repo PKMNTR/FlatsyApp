@@ -10,6 +10,13 @@ import UIKit
 
 class MiembrosTableViewCell: UITableViewCell {
 
+     @IBOutlet weak var nombreLabel : UILabel!
+
+    func rellenar(miembro: Miembro){
+        nombreLabel.text = miembro.nombre
+        nombreLabel.sizeToFit()
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

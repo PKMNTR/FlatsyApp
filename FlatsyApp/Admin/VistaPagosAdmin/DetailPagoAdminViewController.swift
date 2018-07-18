@@ -14,44 +14,51 @@ class DetailPagoAdminViewController: UIViewController {
     var pago: Pago?
     var pagoReference: DocumentReference?
 //
-    @IBOutlet weak var tituloField: UITextField!
+    @IBOutlet weak var conceptoField: UITextField!
     @IBOutlet weak var descripcionField: UITextView!
-    @IBOutlet weak var fechaField: UIDatePicker!
+    @IBOutlet weak var precioField: UITextField!
+    @IBOutlet weak var diaPagoField: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        tituloField.text = pago?.titulo
-//        descripcionField.text = pago?.descripcion
-//        if let fecha = pago?.fecha{
-//             fechaField.setDate(fecha, animated: true)
-//        }
+       concpetoField.text = pago?.concepto
+       descripcionField.text = pago?.descripcion
+       precioField.text = pago?.precio
+       diaPagoField.text = pago?.dia_pago
+    //    if let fecha = pago?.fecha{
+    //         fechaField.setDate(fecha, animated: true)
+    //    }
        
         // Do any additional setup after loading the view.
     }
 
    @IBAction func onTapUpdatePago(_ sender: Any)
    {
-//       guard let titulo = tituloField.text,
-//           let descripcion = descripcionField.text,
-//           let fecha = fechaField?.date.timeIntervalSince1970
-//           else {return}
-//
-//       
-//       let pago = Pago(
-//           comunidad:"asadas",
-//           descripcion: descripcion,
-//           fecha: NSDate(timeIntervalSince1970: fecha) as Date,
-//           titulo: titulo
-//       )
-//
-//        pagoReference?.setData(pago.diccionario, completion: { (error) in
-//        if let error = error{
-//            print("Error agregando nuevo aviso: \(error)")
-//        } else {
-//            print("Document updated")
-//        }
-//    })
+     guard let concepto = conceptoField.text,
+            let descripcion = descripcionField.text,
+            let precio = precioField.text,
+            let diaPago = diaPagoField.text
+            else {return}
+
+      
+       let pago = Pago(
+            comunidad:"asadas",
+            concepto: concepto,
+            dia_pago: Int(diaPago)!,
+            precio: Double(precio)!,
+            descripcion: descripcion,
+            recurrente: true,
+            fecha: NSDate(timeIntervalSince1970: NSDate().timeIntervalSince1970) as Date
+       )
+
+       pagoReference?.setData(pago.diccionario, completion: { (error) in
+       if let error = error{
+           print("Error agregando nuevo aviso: \(error)")
+       } else {
+           print("Document updated")
+       }
+   })
     }
 
     override func didReceiveMemoryWarning() {

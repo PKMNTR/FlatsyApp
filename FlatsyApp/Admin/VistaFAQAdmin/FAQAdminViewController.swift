@@ -7,13 +7,65 @@
 //
 
 import UIKit
+import Firebase
 
-class FAQViewController: UIViewController {
+class FAQAdminViewController: UIViewController {
+
+    @IBOutlet weak var preguntasTable : UITableView!
+
+    var preguntas : [Pregunta] = []
+    var documents : [DocumentSnapshot] = []
+    var listener : ListenerRegistration!
+    
+    var selectedPregunta: Pregunta?
+    var selectedDocumentRef: DocumentReference?
+    
+    var query : Query?{
+        didSet {
+            if let listener = listener{
+                listener.remove()
+            }
+        }   
+    }
+
+    func baseQuery()->Query{
+        let db = Firestore.firestore()
+
+        return Firestore.firestore().collection("faq")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        preguntasTable.dataSource = self
+        preguntasTable.delegate = self
+        preguntasTable.rowHeight = 100
+//        avisosTable.rowHeight = UITableViewAutomaticDimension
+    
+        self.query = baseQuery()       
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        self.listener = query?.addSnapshotListener{(documents, error) in
+            guard let snapshot = documents else{
+                print("error")
+                return
+            }
+                        
+            let results = snapshot.documents.map{(document) -> Pregunta in
+                if let result = Pregunta(diccionario: document.data()){
+                    return result
+                }
+                else {
+                    fatalError("unable to initialize with \(document.data()) " )
+                }
+            }
+            
+            self.preguntas = results
+            self.documents = snapshot.documents
+            
+            self.avisosTable.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +84,34 @@ class FAQViewController: UIViewController {
     }
     */
 
+}
+
+extension AvisosAdminViewController: UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return preguntas.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = preguntasTable.dequeueReusableCell(withIdentifier: "PreguntaAdminCell") as! FAQAdminTableViewCell
+        let pregunta = pregunta[indexPath.row]
+        print(pregunta.pregunta)
+        cell.rellenar(pregunta: pregunta)
+        return cell
+    }
+}
+
+extension FAQAdminViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+            selectedPregunta = preguntas[indexPath.row]
+            selectedDocumentRef = documents[indexPath.row].reference
+
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    if editingStyle == .delete {
+        let pregunta = documents[indexPath.row]
+        pregunta.reference.delete()
+    }
+  }
 }
