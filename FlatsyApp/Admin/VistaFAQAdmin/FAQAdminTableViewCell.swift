@@ -13,8 +13,8 @@ class FAQAdminTableViewCell: UITableViewCell {
     @IBOutlet weak var preguntaLabel : UILabel!
 
     func rellenar(pregunta: Pregunta){
-        testLabel.text = aviso.pregunta
-        testLabel.sizeToFit()
+        preguntaLabel.text = pregunta.pregunta
+        preguntaLabel.sizeToFit()
     }
 
     override func awakeFromNib() {

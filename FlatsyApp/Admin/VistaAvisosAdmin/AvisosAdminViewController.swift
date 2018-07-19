@@ -21,6 +21,8 @@ class AvisosAdminViewController: UIViewController {
     var selectedAviso: Aviso?
     var selectedDocumentRef: DocumentReference?
     
+    var selectedIndex = Int()
+    
     var query : Query?{
         didSet {
             if let listener = listener{
@@ -106,13 +108,17 @@ class AvisosAdminViewController: UIViewController {
 
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "detailAvisoAdmin") {
-            let vc = segue.destination as! DetailAvisoAdminViewController
-            vc.aviso = selectedAviso
-            vc.avisoReference = selectedDocumentRef
-        }
-    }    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if(segue.identifier == "detailAvisoAdmin") {
+//
+//            selectedAviso = avisos[selectedIndex]
+//            selectedDocumentRef = documents[selectedIndex].reference
+//
+//            let vc = segue.destination as! DetailAvisoAdminViewController
+//            vc.aviso = selectedAviso
+//            vc.avisoReference = selectedDocumentRef
+//        }
+//    }
 }
 
 extension AvisosAdminViewController: UITableViewDataSource{
@@ -131,12 +137,12 @@ extension AvisosAdminViewController: UITableViewDataSource{
 
 extension AvisosAdminViewController: UITableViewDelegate{
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        selectedAviso = avisos[indexPath.row]
-        selectedDocumentRef = documents[indexPath.row].reference
-
-    performSegue(withIdentifier: "detailAvisoAdmin", sender: self)
-
-    tableView.deselectRow(at: indexPath, animated: true)
+    let detail = self.storyboard?.instantiateViewController(withIdentifier: "DetailAvisoCtrl") as? DetailAvisoAdminViewController
+    
+    detail?.aviso = avisos[indexPath.row]
+    detail?.avisoReference = documents[indexPath.row].reference
+    
+    self.navigationController?.pushViewController(detail!, animated: true)
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

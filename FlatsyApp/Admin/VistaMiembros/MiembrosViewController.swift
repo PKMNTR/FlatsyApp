@@ -13,7 +13,7 @@ class MiembrosViewController: UIViewController {
 
     @IBOutlet weak var miembrosTable : UITableView!
 
-    var meiembros : [Miembro] = []
+    var miembros : [Miembro] = []
     var documents : [DocumentSnapshot] = []
     var listener : ListenerRegistration!
 
@@ -26,7 +26,6 @@ class MiembrosViewController: UIViewController {
     }
 
     func baseQuery()->Query{
-        let db = Firestore.firestore()
         return Firestore.firestore().collection("usuarios").whereField("admin", isEqualTo: false)
     }
 
@@ -62,7 +61,7 @@ class MiembrosViewController: UIViewController {
             self.miembros = results
             self.documents = snapshot.documents
             
-            self.avisosTable.reloadData()
+            self.miembrosTable.reloadData()
         }
     }
 

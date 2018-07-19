@@ -29,8 +29,6 @@ class FAQAdminViewController: UIViewController {
     }
 
     func baseQuery()->Query{
-        let db = Firestore.firestore()
-
         return Firestore.firestore().collection("faq")
     }
 
@@ -64,7 +62,7 @@ class FAQAdminViewController: UIViewController {
             self.preguntas = results
             self.documents = snapshot.documents
             
-            self.avisosTable.reloadData()
+            self.preguntasTable.reloadData()
         }
     }
 
@@ -86,14 +84,14 @@ class FAQAdminViewController: UIViewController {
 
 }
 
-extension AvisosAdminViewController: UITableViewDataSource{
+extension FAQAdminViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return preguntas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = preguntasTable.dequeueReusableCell(withIdentifier: "PreguntaAdminCell") as! FAQAdminTableViewCell
-        let pregunta = pregunta[indexPath.row]
+        let pregunta = preguntas[indexPath.row]
         print(pregunta.pregunta)
         cell.rellenar(pregunta: pregunta)
         return cell

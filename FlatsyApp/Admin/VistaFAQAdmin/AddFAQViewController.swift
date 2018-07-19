@@ -23,18 +23,18 @@ class AddFAQViewController: UIViewController {
     @IBAction func onTapAddAviso(_ sender: Any)
     {
         guard let pregunta = preguntaField.text,
-            let respuesta = respuestaField.text,
+            let respuesta = respuestaField.text
             else {return}
 
         let collection = Firestore.firestore().collection("faq")
 
-        let pregunta = Pregunta(
+        let preguntaModel = Pregunta(
             comunidad:"asadas",
             pregunta: pregunta,
             respuesta: respuesta
         )
 
-        ref = collection.addDocument(data: pregunta.diccionario){ err in
+        ref = collection.addDocument(data: preguntaModel.diccionario){ err in
             if let err = err{
                 print("Error agregando nueva pregunta: \(err)")
             } else {

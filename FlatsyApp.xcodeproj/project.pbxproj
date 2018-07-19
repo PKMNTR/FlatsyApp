@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		29CA50C50563FB9C3EAE97EB /* Pods_FlatsyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 152DFFF4F463EF7CE82F0F13 /* Pods_FlatsyAppTests.framework */; };
-		A507B0B920F5C33A00F922BC /* FAQAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0B820F5C33A00F922BC /* FAQAdminTableViewCell.swift */; };
-		A507B0BB20F5C37700F922BC /* FAQAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0BA20F5C37700F922BC /* FAQAdminViewController.swift */; };
-		A507B0BE20F5C4A600F922BC /* MiembrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0BD20F5C4A600F922BC /* MiembrosViewController.swift */; };
-		A507B0C020F5C51500F922BC /* MiembrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0BF20F5C51500F922BC /* MiembrosTableViewCell.swift */; };
 		A507B0C520F5C9C100F922BC /* AvisosUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0C420F5C9C100F922BC /* AvisosUserTableViewCell.swift */; };
 		A507B0C720F5CA0A00F922BC /* AvisosUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0C620F5CA0A00F922BC /* AvisosUserViewController.swift */; };
 		A507B0CA20F5CBCE00F922BC /* PagosUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0C920F5CBCE00F922BC /* PagosUserViewController.swift */; };
@@ -35,6 +31,14 @@
 		A5A0687220E9F0D30082D44E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A0687020E9F0D30082D44E /* LaunchScreen.storyboard */; };
 		A5A0687D20E9F0D30082D44E /* FlatsyAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0687C20E9F0D30082D44E /* FlatsyAppTests.swift */; };
 		A5A0688820E9F0D30082D44E /* FlatsyAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5A0688720E9F0D30082D44E /* FlatsyAppUITests.swift */; };
+		A5FBEA3321004E9100B4EAF0 /* FAQAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBEA2F21004E9000B4EAF0 /* FAQAdminViewController.swift */; };
+		A5FBEA3421004E9100B4EAF0 /* FAQAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBEA3021004E9000B4EAF0 /* FAQAdminTableViewCell.swift */; };
+		A5FBEA3521004E9100B4EAF0 /* AddFAQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBEA3121004E9100B4EAF0 /* AddFAQViewController.swift */; };
+		A5FBEA3621004E9100B4EAF0 /* DetailFAQAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBEA3221004E9100B4EAF0 /* DetailFAQAdminViewController.swift */; };
+		A5FBEA3921004EB200B4EAF0 /* MiembrosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBEA3721004EB200B4EAF0 /* MiembrosViewController.swift */; };
+		A5FBEA3A21004EB200B4EAF0 /* MiembrosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBEA3821004EB200B4EAF0 /* MiembrosTableViewCell.swift */; };
+		A5FBEA3D21004ECF00B4EAF0 /* Miembro.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBEA3B21004ECF00B4EAF0 /* Miembro.swift */; };
+		A5FBEA3E21004ECF00B4EAF0 /* Pregunta.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FBEA3C21004ECF00B4EAF0 /* Pregunta.swift */; };
 		C0B91EB252476B6F2DF0B153 /* Pods_FlatsyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E239FB10257E8B476E729628 /* Pods_FlatsyAppUITests.framework */; };
 		F6C0CC1D2D3E2E008BB6E9EB /* Pods_FlatsyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845EBDE7183A3D110CD0658E /* Pods_FlatsyApp.framework */; };
 /* End PBXBuildFile section */
@@ -65,10 +69,6 @@
 		3B1D592419C41D2E188855C3 /* Pods-FlatsyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlatsyAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlatsyAppTests/Pods-FlatsyAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		845EBDE7183A3D110CD0658E /* Pods_FlatsyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlatsyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F222683036BFAB78F33284F /* Pods-FlatsyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlatsyApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlatsyApp/Pods-FlatsyApp.debug.xcconfig"; sourceTree = "<group>"; };
-		A507B0B820F5C33A00F922BC /* FAQAdminTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQAdminTableViewCell.swift; sourceTree = "<group>"; };
-		A507B0BA20F5C37700F922BC /* FAQAdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQAdminViewController.swift; sourceTree = "<group>"; };
-		A507B0BD20F5C4A600F922BC /* MiembrosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiembrosViewController.swift; sourceTree = "<group>"; };
-		A507B0BF20F5C51500F922BC /* MiembrosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiembrosTableViewCell.swift; sourceTree = "<group>"; };
 		A507B0C420F5C9C100F922BC /* AvisosUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvisosUserTableViewCell.swift; sourceTree = "<group>"; };
 		A507B0C620F5CA0A00F922BC /* AvisosUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvisosUserViewController.swift; sourceTree = "<group>"; };
 		A507B0C920F5CBCE00F922BC /* PagosUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagosUserViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +98,14 @@
 		A5A0688320E9F0D30082D44E /* FlatsyAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlatsyAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A0688720E9F0D30082D44E /* FlatsyAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatsyAppUITests.swift; sourceTree = "<group>"; };
 		A5A0688920E9F0D30082D44E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5FBEA2F21004E9000B4EAF0 /* FAQAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQAdminViewController.swift; sourceTree = "<group>"; };
+		A5FBEA3021004E9000B4EAF0 /* FAQAdminTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FAQAdminTableViewCell.swift; sourceTree = "<group>"; };
+		A5FBEA3121004E9100B4EAF0 /* AddFAQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFAQViewController.swift; sourceTree = "<group>"; };
+		A5FBEA3221004E9100B4EAF0 /* DetailFAQAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFAQAdminViewController.swift; sourceTree = "<group>"; };
+		A5FBEA3721004EB200B4EAF0 /* MiembrosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiembrosViewController.swift; sourceTree = "<group>"; };
+		A5FBEA3821004EB200B4EAF0 /* MiembrosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiembrosTableViewCell.swift; sourceTree = "<group>"; };
+		A5FBEA3B21004ECF00B4EAF0 /* Miembro.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Miembro.swift; sourceTree = "<group>"; };
+		A5FBEA3C21004ECF00B4EAF0 /* Pregunta.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pregunta.swift; sourceTree = "<group>"; };
 		E239FB10257E8B476E729628 /* Pods_FlatsyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlatsyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -154,8 +162,10 @@
 		A507B0B720F5C2F900F922BC /* VistaFAQAdmin */ = {
 			isa = PBXGroup;
 			children = (
-				A507B0B820F5C33A00F922BC /* FAQAdminTableViewCell.swift */,
-				A507B0BA20F5C37700F922BC /* FAQAdminViewController.swift */,
+				A5FBEA3121004E9100B4EAF0 /* AddFAQViewController.swift */,
+				A5FBEA3221004E9100B4EAF0 /* DetailFAQAdminViewController.swift */,
+				A5FBEA3021004E9000B4EAF0 /* FAQAdminTableViewCell.swift */,
+				A5FBEA2F21004E9000B4EAF0 /* FAQAdminViewController.swift */,
 			);
 			path = VistaFAQAdmin;
 			sourceTree = "<group>";
@@ -163,8 +173,8 @@
 		A507B0BC20F5C42900F922BC /* VistaMiembros */ = {
 			isa = PBXGroup;
 			children = (
-				A507B0BD20F5C4A600F922BC /* MiembrosViewController.swift */,
-				A507B0BF20F5C51500F922BC /* MiembrosTableViewCell.swift */,
+				A5FBEA3821004EB200B4EAF0 /* MiembrosTableViewCell.swift */,
+				A5FBEA3721004EB200B4EAF0 /* MiembrosViewController.swift */,
 			);
 			path = VistaMiembros;
 			sourceTree = "<group>";
@@ -220,6 +230,8 @@
 		A559D8E420FB112900E02955 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A5FBEA3B21004ECF00B4EAF0 /* Miembro.swift */,
+				A5FBEA3C21004ECF00B4EAF0 /* Pregunta.swift */,
 				A5872AF220FD94E00027582B /* Aviso.swift */,
 				A5872AF120FD94E00027582B /* Pago.swift */,
 			);
@@ -534,26 +546,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5FBEA3A21004EB200B4EAF0 /* MiembrosTableViewCell.swift in Sources */,
 				A5A0686820E9F0D20082D44E /* AppDelegate.swift in Sources */,
+				A5FBEA3421004E9100B4EAF0 /* FAQAdminTableViewCell.swift in Sources */,
 				A507B0C520F5C9C100F922BC /* AvisosUserTableViewCell.swift in Sources */,
 				A56024A120FC155600374AE6 /* DetailAvisoAdminViewController.swift in Sources */,
+				A5FBEA3621004E9100B4EAF0 /* DetailFAQAdminViewController.swift in Sources */,
 				A507B0CC20F5CC1D00F922BC /* PagosUserTableViewCell.swift in Sources */,
 				A507B0CA20F5CBCE00F922BC /* PagosUserViewController.swift in Sources */,
 				A507B0D120F5CCE000F922BC /* FAQUserViewController.swift in Sources */,
 				A56024A220FC155600374AE6 /* AddAvisoViewController.swift in Sources */,
 				A56024A020FC155600374AE6 /* AvisosAdminViewController.swift in Sources */,
+				A5FBEA3D21004ECF00B4EAF0 /* Miembro.swift in Sources */,
+				A5FBEA3E21004ECF00B4EAF0 /* Pregunta.swift in Sources */,
+				A5FBEA3521004E9100B4EAF0 /* AddFAQViewController.swift in Sources */,
 				A5872AFA20FD95160027582B /* PagosAdminTableViewCell.swift in Sources */,
-				A507B0BE20F5C4A600F922BC /* MiembrosViewController.swift in Sources */,
 				A560249F20FC155600374AE6 /* AvisosAdminTableViewCell.swift in Sources */,
 				A5872AFC20FD95160027582B /* PagosAdminViewController.swift in Sources */,
+				A5FBEA3921004EB200B4EAF0 /* MiembrosViewController.swift in Sources */,
 				A5872AF920FD95160027582B /* DetailPagoAdminViewController.swift in Sources */,
 				A5872AF420FD94E00027582B /* Aviso.swift in Sources */,
-				A507B0C020F5C51500F922BC /* MiembrosTableViewCell.swift in Sources */,
+				A5FBEA3321004E9100B4EAF0 /* FAQAdminViewController.swift in Sources */,
 				A507B0C720F5CA0A00F922BC /* AvisosUserViewController.swift in Sources */,
-				A507B0BB20F5C37700F922BC /* FAQAdminViewController.swift in Sources */,
 				A5872AF320FD94E00027582B /* Pago.swift in Sources */,
 				A5872AFB20FD95160027582B /* AddPagoViewController.swift in Sources */,
-				A507B0B920F5C33A00F922BC /* FAQAdminTableViewCell.swift in Sources */,
 				A507B0CF20F5CCA800F922BC /* FAQUserTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

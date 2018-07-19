@@ -22,10 +22,10 @@ class DetailPagoAdminViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       concpetoField.text = pago?.concepto
+       conceptoField.text = pago?.concepto
        descripcionField.text = pago?.descripcion
-       precioField.text = pago?.precio
-       diaPagoField.text = pago?.dia_pago
+       precioField.text = pago?.precio.description
+       diaPagoField.text = pago?.dia_pago.description
     //    if let fecha = pago?.fecha{
     //         fechaField.setDate(fecha, animated: true)
     //    }

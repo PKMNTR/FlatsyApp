@@ -20,8 +20,8 @@ class DetailFAQAdminViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tituloField.text = pregunta?.pregunta
-        descripcionField.text = pregunta?.respuesta
+        preguntaField.text = pregunta?.pregunta
+        respuestaField.text = pregunta?.respuesta
        
         // Do any additional setup after loading the view.
     }
@@ -29,17 +29,17 @@ class DetailFAQAdminViewController: UIViewController {
    @IBAction func onTapUpdateAviso(_ sender: Any)
    {
        guard let pregunta = preguntaField.text,
-            let respuesta = respuestaField.text,
+            let respuesta = respuestaField.text
             else {return}
 
        
-       let aviso = Aviso(
+       let preguntaModel = Pregunta(
            comunidad:"asadas",
            pregunta: pregunta,
            respuesta: respuesta
        )
 
-    preguntaReference?.setData(pregunta.diccionario, completion: { (error) in
+    preguntaReference?.setData(preguntaModel.diccionario, completion: { (error) in
         if let error = error{
             print("Error agregando nuevo pregunta: \(error)")
         } else {
