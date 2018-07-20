@@ -28,6 +28,8 @@ class PagosAdminViewController: UIViewController {
             }
         }   
     }
+    
+    var selectedIndex = Int()
 
     func baseQuery()->Query{
         let db = Firestore.firestore()
@@ -78,7 +80,10 @@ class PagosAdminViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "detailPagoAdmin") {
+        if(segue.identifier == "DetailPagoAdmin") {
+            selectedPago = pagos[selectedIndex]
+            selectedDocumentRef = documents[selectedIndex].reference
+            
             let vc = segue.destination as! DetailPagoAdminViewController
             vc.pago = selectedPago
             vc.pagoReference = selectedDocumentRef
@@ -102,10 +107,8 @@ extension PagosAdminViewController: UITableViewDataSource{
 
 extension PagosAdminViewController: UITableViewDelegate{
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        selectedPago = pagos[indexPath.row]
-        selectedDocumentRef = documents[indexPath.row].reference
-    
-    tableView.deselectRow(at: indexPath, animated: true)
+    selectedIndex = indexPath.row
+    performSegue(withIdentifier: "DetailPagoAdmin", sender: self)
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

@@ -108,17 +108,17 @@ class AvisosAdminViewController: UIViewController {
 
     }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if(segue.identifier == "detailAvisoAdmin") {
-//
-//            selectedAviso = avisos[selectedIndex]
-//            selectedDocumentRef = documents[selectedIndex].reference
-//
-//            let vc = segue.destination as! DetailAvisoAdminViewController
-//            vc.aviso = selectedAviso
-//            vc.avisoReference = selectedDocumentRef
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "DetailAvisoAdmin") {
+
+            selectedAviso = avisos[selectedIndex]
+            selectedDocumentRef = documents[selectedIndex].reference
+
+            let vc = segue.destination as! DetailAvisoAdminViewController
+            vc.aviso = selectedAviso
+            vc.avisoReference = selectedDocumentRef
+        }
+    }
 }
 
 extension AvisosAdminViewController: UITableViewDataSource{
@@ -137,12 +137,13 @@ extension AvisosAdminViewController: UITableViewDataSource{
 
 extension AvisosAdminViewController: UITableViewDelegate{
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-    let detail = self.storyboard?.instantiateViewController(withIdentifier: "DetailAvisoCtrl") as? DetailAvisoAdminViewController
-    
-    detail?.aviso = avisos[indexPath.row]
-    detail?.avisoReference = documents[indexPath.row].reference
-    
-    self.navigationController?.pushViewController(detail!, animated: true)
+//    let detail = self.storyboard?.instantiateViewController(withIdentifier: "DetailAvisoCtrl") as? DetailAvisoAdminViewController
+//
+//    detail?.aviso = avisos[indexPath.row]
+//    detail?.avisoReference = documents[indexPath.row].reference
+//    self.navigationController?.pushViewController(detail!, animated: true)
+    selectedIndex = indexPath.row
+    performSegue(withIdentifier: "DetailAvisoAdmin", sender: self)
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

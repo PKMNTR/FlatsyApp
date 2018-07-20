@@ -27,6 +27,8 @@ class FAQAdminViewController: UIViewController {
             }
         }   
     }
+    
+    var selectedIndex = Int()
 
     func baseQuery()->Query{
         return Firestore.firestore().collection("faq")
@@ -71,16 +73,19 @@ class FAQAdminViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if(segue.identifier == "DetailFAQAdmin") {
+            selectedPregunta = preguntas[selectedIndex]
+            selectedDocumentRef = documents[selectedIndex].reference
+            
+            let vc = segue.destination as! DetailFAQAdminViewController
+            vc.pregunta = selectedPregunta
+            vc.preguntaReference = selectedDocumentRef
+        }
     }
-    */
 
 }
 
@@ -90,7 +95,7 @@ extension FAQAdminViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = preguntasTable.dequeueReusableCell(withIdentifier: "PreguntaAdminCell") as! FAQAdminTableViewCell
+        let cell = preguntasTable.dequeueReusableCell(withIdentifier: "FAQAdminCell") as! FAQAdminTableViewCell
         let pregunta = preguntas[indexPath.row]
         print(pregunta.pregunta)
         cell.rellenar(pregunta: pregunta)
@@ -100,10 +105,8 @@ extension FAQAdminViewController: UITableViewDataSource{
 
 extension FAQAdminViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-            selectedPregunta = preguntas[indexPath.row]
-            selectedDocumentRef = documents[indexPath.row].reference
-
-        tableView.deselectRow(at: indexPath, animated: true)
+        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "DetailFAQAdmin", sender: self)
     }
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
