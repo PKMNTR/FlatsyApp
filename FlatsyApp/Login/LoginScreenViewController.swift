@@ -46,14 +46,16 @@ class LoginScreenViewController: UIViewController {
     }
 
     @IBAction func onTapChangeForm() {
+        emailField.text = ""
+        passwordField.text = ""
         if self.signin == true{
-            selectForm.title = "Inscribete"
+            selectForm.setTitle("Inscribete", for: .normal)
             loginText.text = "¿Aun no tienes cuenta?"
             loginLabel.text = "Inicia Sesion"
             self.signin = false
         }
         else{
-            selectForm.title = "Inicia sesion"
+            selectForm.setTitle("Inicia sesion", for: .normal)
             loginText.text = "¿Ya tienes cuenta?"
             loginLabel.text = "Inscribete"
             self.signin = true
