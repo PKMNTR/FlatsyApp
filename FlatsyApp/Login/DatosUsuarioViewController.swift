@@ -7,13 +7,64 @@
 //
 
 import UIKit
+import Firebase
 
 class DatosUsuarioViewController: UIViewController {
+
+    @IBOutlet weak var nombreField: UITextField!
+    @IBOutlet weak var apellidosField: UITextField!
+    @IBOutlet weak var telefonoField: UITextField!
+    @IBOutlet weak var viviendaField: UITextField
+
+    var db: Firestore!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+    }
+
+    @IBAction func onTapSendDataCreateUser(){
+        guard let nombre = nombreField.text, 
+            let apellidos = apellidosField.text,
+            let telefono = telefonoField.text,
+            let vivienda = viviendaField.text else {
+                return
+            }
+
+            if telefono.length =! 8 || telefono.length =! 10{
+                return
+            }
+
+            let defaults = UserDefaults.standard
+            let uid = defaults.object(forKey: "UID") as! String
+            let email = defaults.object(forKey: "email") as! String
+            let comunidad = defaults.object(forKey: "comunidad") as! String
+
+            db.collection("usuarios").document("uid").setData({
+                "nombre" : nombre,
+                "apellidos" : apellidos,
+                "admin": false,
+                "telefono": telefono,
+                "numero_vivienda" : vivienda,
+                "email" : email
+                "comunidad" : comunidad
+            })
+            .then(function(docRef) {
+                console.log("Document written with ID: ", docRef.id);
+
+                defaults.set(nombre, forKey: "nombre")
+                defaults.set(apellidos, forKey: "apellidos")
+                defaults.set(telefono, forKey: "telefono")
+                defaults.set(vivienda, forKey: "vivienda")
+
+                performSegue(withIdentifier: "MainUserView", sender: self)
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
     }
 
     override func didReceiveMemoryWarning() {

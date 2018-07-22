@@ -91,10 +91,17 @@ class LoginScreenViewController: UIViewController {
                     
                     // let values = ["name": email]
                     
-                    // guard let uid = user?.uid else{
-                    //     return
-                    // }
-                    
+                    guard let uid = user?.uid,
+                        let email = user?.email else{
+                        return
+                    }
+
+                    let defaults = UserDefaults.standard
+                    defaults.set(uid, forKey: "UID")
+                    defaults.set(email, forKey: "email")
+
+                    performSegue(withIdentifier: "CodigoComunidad", sender: self)
+
                     // let userReference = self.ref.child("users").child(uid)
                     
                     // userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
@@ -117,15 +124,10 @@ class LoginScreenViewController: UIViewController {
         }
     }
     
-
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    // override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    // }
 }
