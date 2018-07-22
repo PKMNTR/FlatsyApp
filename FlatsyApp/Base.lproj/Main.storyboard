@@ -1121,16 +1121,19 @@
                         <outlet property="loginText" destination="Egk-2g-3hD" id="4Os-C3-RAC"/>
                         <outlet property="passwordField" destination="FSa-ha-atb" id="dj4-pM-fMR"/>
                         <outlet property="selectForm" destination="13T-aR-FGr" id="Jcr-bi-h1t"/>
+                        <segue destination="X8B-cn-R9B" kind="show" identifier="CodigoComunidad" id="Rgf-gc-dfn"/>
+                        <segue destination="HGX-6f-Ulr" kind="show" identifier="LoginShowAdmin" id="Mor-bW-1hg"/>
+                        <segue destination="pWl-eL-wal" kind="show" identifier="LoginShowUser" id="dCq-2e-vfa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="18r-Ef-442" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4543" y="1175"/>
+            <point key="canvasLocation" x="-3161" y="1142"/>
         </scene>
-        <!--View Controller-->
+        <!--Codigo Comunidad View Controller-->
         <scene sceneID="ah5-pB-R4L">
             <objects>
-                <viewController id="X8B-cn-R9B" sceneMemberID="viewController">
+                <viewController id="X8B-cn-R9B" customClass="CodigoComunidadViewController" customModule="FlatsyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Ea-Dy-PoR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1145,6 +1148,9 @@
                                 <rect key="frame" x="152" y="392.5" width="71" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <state key="normal" title="Continuar"/>
+                                <connections>
+                                    <action selector="onTapCheckComunidad" destination="X8B-cn-R9B" eventType="touchUpInside" id="g6h-e6-Cnq"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2rP-R1-PRp">
                                 <rect key="frame" x="50" y="312.5" width="275" height="30"/>
@@ -1167,15 +1173,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RAn-wf-efL"/>
                     </view>
+                    <connections>
+                        <outlet property="codigoField" destination="2rP-R1-PRp" id="YmV-5u-mCk"/>
+                        <segue destination="YYk-hB-KTQ" kind="show" identifier="DatosUsuario" id="mGm-bg-nnJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4LA-HY-T9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3772" y="1175"/>
+            <point key="canvasLocation" x="-2390" y="1142"/>
         </scene>
-        <!--View Controller-->
+        <!--Datos Usuario View Controller-->
         <scene sceneID="aRL-tg-fTf">
             <objects>
-                <viewController id="YYk-hB-KTQ" sceneMemberID="viewController">
+                <viewController id="YYk-hB-KTQ" customClass="DatosUsuarioViewController" customModule="FlatsyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="78o-8X-we9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1231,6 +1241,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWp-Bt-v1i">
                                 <rect key="frame" x="159" y="466" width="57" height="30"/>
                                 <state key="normal" title="Finalizar"/>
+                                <connections>
+                                    <action selector="onTapSendDataCreateUser" destination="YYk-hB-KTQ" eventType="touchUpInside" id="N04-un-ib0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1260,10 +1273,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zDw-Bi-upg"/>
                     </view>
+                    <connections>
+                        <outlet property="apellidosField" destination="vKS-YO-Rfn" id="Nxg-M2-ma9"/>
+                        <outlet property="nombreField" destination="Rc4-8Z-abi" id="O51-qr-UQf"/>
+                        <outlet property="telefonoField" destination="NjV-mC-av3" id="JkJ-EB-8s7"/>
+                        <outlet property="viviendaField" destination="nkd-jL-CJs" id="ldy-Np-xwg"/>
+                        <segue destination="pWl-eL-wal" kind="show" identifier="InicioUsuarios" id="7He-pH-KjU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mEa-Lx-fZt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2927" y="1175"/>
+            <point key="canvasLocation" x="-1545" y="1142"/>
         </scene>
         <!--AdminTabBar-->
         <scene sceneID="LKX-ah-DwI">
@@ -1343,4 +1363,7 @@
             <point key="canvasLocation" x="516" y="590.55472263868069"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dCq-2e-vfa"/>
+    </inferredMetricsTieBreakers>
 </document>

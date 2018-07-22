@@ -20,6 +20,12 @@ class LoginScreenViewController: UIViewController {
     var signin: Bool = true
 
     var query: Query?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if Auth.auth().currentUser != nil{
+            print(Auth.auth().currentUser?.email)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,8 +97,8 @@ class LoginScreenViewController: UIViewController {
                     
                     // let values = ["name": email]
                     
-                    guard let uid = user?.uid,
-                        let email = user?.email else{
+                    guard let uid = user?.user.uid,
+                        let email = user?.user.email else{
                         return
                     }
 
@@ -100,7 +106,7 @@ class LoginScreenViewController: UIViewController {
                     defaults.set(uid, forKey: "UID")
                     defaults.set(email, forKey: "email")
 
-                    performSegue(withIdentifier: "CodigoComunidad", sender: self)
+                    self.goToNextScreen()
 
                     // let userReference = self.ref.child("users").child(uid)
                     
@@ -120,8 +126,11 @@ class LoginScreenViewController: UIViewController {
                     }
                 }
             }
-    
         }
+    }
+    
+    func goToNextScreen(){
+        performSegue(withIdentifier: "CodigoComunidad", sender: self)
     }
     
     // MARK: - Navigation

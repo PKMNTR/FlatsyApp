@@ -11,7 +11,7 @@ import Firebase
 
 class CodigoComunidadViewController: UIViewController {
 
-    @IBOutlet weak var codigoField: UITextField
+    @IBOutlet weak var codigoField: UITextField!
 
     var db: Firestore!
 
@@ -34,12 +34,16 @@ class CodigoComunidadViewController: UIViewController {
             if let document = document, document.exists {
                 let defaults = UserDefaults.standard
                 defaults.set(self.codigoField.text, forKey: "comunidad")
-                performSegue(withIdentifier: "DatosUsuario", sender: self)
+                self.goToNextScreen()
             } else {
                 print("No existe la comunidad")
-                codigoField.text = ""
+                self.codigoField.text = ""
             }
         }
+    }
+    
+    func goToNextScreen(){
+        performSegue(withIdentifier: "DatosUsuario", sender: self)
     }
     
 
