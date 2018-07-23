@@ -19,27 +19,45 @@ class LoginScreenViewController: UIViewController {
 
     var signin: Bool = true
 
+    var db: Firestore!
     var query: Query?
     
+    let defaults = UserDefaults.standard
+
     override func viewWillAppear(_ animated: Bool) {
-        if Auth.auth().currentUser != nil{
-            print(Auth.auth().currentUser?.email)
-        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.query = baseQuery()
+        let settings = FirestoreSettings()
+        Firestore.firestore().settings = settings
+        db = Firestore.firestore()
+
+        if Auth.auth().currentUser != nil{
+            let uid = defaults.object(forKey: "UID") as! String
+            let docRef = db.collection("usuarios").document(uid)
+
+            docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    let admin = document.getBool("admin")
+
+                    if admin{
+                        self.goToNextScreen("InicioAdmin")
+                    }
+                    else{
+                        self.goToNextScreen("InicioUser")
+                    }
+                } else {
+                    print("Document does not exist")
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    func baseQuery()->Query{
-        return Firestore.firestore().collection("usuarios")
     }
 
     @IBAction func onTapSendButton(){
@@ -73,9 +91,35 @@ class LoginScreenViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 if user != nil{
                     print("Usuario autenticsdo")
-                    
-                    // let lc = LoginViewController()
-                    // self.navigationController?.pushViewController(lc, animated: true)
+                    guard let uid = user?.user.uid,
+                        let email = user?.user.email else{
+                        return
+                    }
+
+                    self.defaults.set(uid, forKey: "UID")
+                    self.defaults.set(email, forKey: "email")
+
+                    let docRef = db.collection("usuarios").document(uid)
+
+                    docRef.getDocument { (document, error) in
+                        if let document = document, document.exists {
+                            let admin = document.getBool("admin")
+                            let nombre = document.getBool("nombre")
+                            let comunidad = document.getBool("comunidad")
+
+                            self.defaults.set(nombre, forKey: "nombre")
+                            self.defaults.set(email, forKey: "email")
+                            
+                            if admin{
+                                self.goToNextScreen("InicioAdmin")
+                            }
+                            else{
+                                self.goToNextScreen("InicioUser")
+                            }
+                        } else {
+                            print("Document does not exist")
+                        }
+                    }
                 }
                 else{
                     if let error = error?.localizedDescription{
@@ -106,7 +150,7 @@ class LoginScreenViewController: UIViewController {
                     defaults.set(uid, forKey: "UID")
                     defaults.set(email, forKey: "email")
 
-                    self.goToNextScreen()
+                    self.goToNextScreen("CodigoComunidad")
 
                     // let userReference = self.ref.child("users").child(uid)
                     
@@ -129,8 +173,8 @@ class LoginScreenViewController: UIViewController {
         }
     }
     
-    func goToNextScreen(){
-        performSegue(withIdentifier: "CodigoComunidad", sender: self)
+    func goToNextScreen(identifier: String){
+        performSegue(withIdentifier: identifier, sender: self)
     }
     
     // MARK: - Navigation
