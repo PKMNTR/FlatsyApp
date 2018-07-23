@@ -21,8 +21,6 @@ class DatosUsuarioViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let settings = FirestoreSettings()
-        Firestore.firestore().settings = settings
         db = Firestore.firestore()
     }
 

@@ -32,29 +32,14 @@ class AvisosAdminViewController: UIViewController {
     }
 
     func baseQuery()->Query{
-        let db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
-
         return Firestore.firestore().collection("comunicados")
     }
 
     func baseQueryAvisos()->Query{
-        let db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
-
         return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: true)
     }
 
     func baseQueryJuntas()->Query{
-        let db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
-
         return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: false)
     }
 

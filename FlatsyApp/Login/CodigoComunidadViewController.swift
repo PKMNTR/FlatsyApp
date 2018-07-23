@@ -12,15 +12,11 @@ import Firebase
 class CodigoComunidadViewController: UIViewController {
 
     @IBOutlet weak var codigoField: UITextField!
-
-    var db: Firestore!
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let settings = FirestoreSettings()
-        Firestore.firestore().settings = settings
-        db = Firestore.firestore()
     }
 
     @IBAction func onTapCheckComunidad(){
@@ -28,12 +24,11 @@ class CodigoComunidadViewController: UIViewController {
             return
         }
 
-        let docRef = db.collection("comunidad").document(codigo)
+        let docRef = Firestore.firestore().collection("comunidad").document(codigo)
 
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
-                let defaults = UserDefaults.standard
-                defaults.set(self.codigoField.text, forKey: "comunidad")
+                self.defaults.set(self.codigoField.text, forKey: "comunidad")
                 self.goToNextScreen()
             } else {
                 print("No existe la comunidad")

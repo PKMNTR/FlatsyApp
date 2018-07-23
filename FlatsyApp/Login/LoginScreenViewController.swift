@@ -25,34 +25,39 @@ class LoginScreenViewController: UIViewController {
     let defaults = UserDefaults.standard
 
     override func viewWillAppear(_ animated: Bool) {
+        db = Firestore.firestore()
+        let settings = db.settings
+        settings.areTimestampsInSnapshotsEnabled = true
+        db.settings = settings
+        
+        
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil{
+                let uid = user?.uid
+                let docRef = self.db.collection("usuarios").document(uid!)
+                
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
+                        let admin = document.get("admin")
+                        
+                        let condicion = admin as! Bool
+                        
+                        if condicion{
+                            self.goToNextScreen(identifier: "LoginShowAdmin")
+                        }
+                        else{
+                            self.goToNextScreen(identifier: "LoginShowUser")
+                        }
+                    } else {
+                        print("Document does not exist")
+                    }
+                }
+            }
+        }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let settings = FirestoreSettings()
-        Firestore.firestore().settings = settings
-        db = Firestore.firestore()
-
-        if Auth.auth().currentUser != nil{
-            let uid = defaults.object(forKey: "UID") as! String
-            let docRef = db.collection("usuarios").document(uid)
-
-            docRef.getDocument { (document, error) in
-                if let document = document, document.exists {
-                    let admin = document.getBool("admin")
-
-                    if admin{
-                        self.goToNextScreen("InicioAdmin")
-                    }
-                    else{
-                        self.goToNextScreen("InicioUser")
-                    }
-                } else {
-                    print("Document does not exist")
-                }
-            }
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -99,22 +104,25 @@ class LoginScreenViewController: UIViewController {
                     self.defaults.set(uid, forKey: "UID")
                     self.defaults.set(email, forKey: "email")
 
-                    let docRef = db.collection("usuarios").document(uid)
+                    let docRef = self.db.collection("usuarios").document(uid)
 
                     docRef.getDocument { (document, error) in
                         if let document = document, document.exists {
-                            let admin = document.getBool("admin")
-                            let nombre = document.getBool("nombre")
-                            let comunidad = document.getBool("comunidad")
-
-                            self.defaults.set(nombre, forKey: "nombre")
-                            self.defaults.set(email, forKey: "email")
+                            guard let admin = document.get("admin"),
+                            let nombre = document.get("nombre"),
+                            let comunidad = document.get("comunidad") else{
+                                    return
+                            }
                             
-                            if admin{
-                                self.goToNextScreen("InicioAdmin")
+                            let condition = admin as! Bool
+                            self.defaults.set(nombre, forKey: "nombre")
+                            self.defaults.set(comunidad, forKey: "comunidad")
+                            
+                            if condition {
+                                self.goToNextScreen(identifier: "LoginShowAdmin")
                             }
                             else{
-                                self.goToNextScreen("InicioUser")
+                                self.goToNextScreen(identifier: "LoginShowUser")
                             }
                         } else {
                             print("Document does not exist")
@@ -150,7 +158,7 @@ class LoginScreenViewController: UIViewController {
                     defaults.set(uid, forKey: "UID")
                     defaults.set(email, forKey: "email")
 
-                    self.goToNextScreen("CodigoComunidad")
+                    self.goToNextScreen(identifier: "CodigoComunidad")
 
                     // let userReference = self.ref.child("users").child(uid)
                     

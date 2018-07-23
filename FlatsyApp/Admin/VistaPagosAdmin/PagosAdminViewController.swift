@@ -32,11 +32,6 @@ class PagosAdminViewController: UIViewController {
     var selectedIndex = Int()
 
     func baseQuery()->Query{
-        let db = Firestore.firestore()
-        let settings = db.settings
-        settings.areTimestampsInSnapshotsEnabled = true
-        db.settings = settings
-
         return Firestore.firestore().collection("pagos")
     }
 

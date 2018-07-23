@@ -571,12 +571,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SNn-KS-0k9">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Avisos" id="dyy-ZW-DQb"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MLl-Im-HxP">
                                 <rect key="frame" x="0.0" y="112" width="375" height="506"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -603,22 +597,49 @@
                         <constraints>
                             <constraint firstItem="MLl-Im-HxP" firstAttribute="bottom" secondItem="T79-ui-OsS" secondAttribute="bottom" id="1pg-1v-5gj"/>
                             <constraint firstItem="MLl-Im-HxP" firstAttribute="top" secondItem="O7r-Qs-Wbh" secondAttribute="bottom" constant="10" id="8k1-ua-9eL"/>
-                            <constraint firstItem="SNn-KS-0k9" firstAttribute="top" secondItem="T79-ui-OsS" secondAttribute="top" id="BxL-99-tRs"/>
-                            <constraint firstItem="O7r-Qs-Wbh" firstAttribute="top" secondItem="SNn-KS-0k9" secondAttribute="bottom" constant="10" id="Juc-Wf-Url"/>
                             <constraint firstItem="T79-ui-OsS" firstAttribute="trailing" secondItem="O7r-Qs-Wbh" secondAttribute="trailing" constant="80" id="M1k-nh-Q3M"/>
-                            <constraint firstItem="SNn-KS-0k9" firstAttribute="leading" secondItem="T79-ui-OsS" secondAttribute="leading" id="M2f-Pt-hxA"/>
-                            <constraint firstItem="SNn-KS-0k9" firstAttribute="trailing" secondItem="T79-ui-OsS" secondAttribute="trailing" id="Rv1-0p-LFf"/>
                             <constraint firstItem="MLl-Im-HxP" firstAttribute="trailing" secondItem="T79-ui-OsS" secondAttribute="trailing" id="XNi-k1-hAp"/>
+                            <constraint firstItem="O7r-Qs-Wbh" firstAttribute="top" secondItem="T79-ui-OsS" secondAttribute="top" constant="10" id="bHq-cC-fBV"/>
                             <constraint firstItem="MLl-Im-HxP" firstAttribute="leading" secondItem="T79-ui-OsS" secondAttribute="leading" id="iQm-qg-QNe"/>
                             <constraint firstItem="O7r-Qs-Wbh" firstAttribute="leading" secondItem="T79-ui-OsS" secondAttribute="leading" constant="80" id="lvl-l3-8Aw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T79-ui-OsS"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Avisos" id="6dF-2g-Kmi"/>
+                    <navigationItem key="navigationItem" title="Avisos" id="ln4-9d-AeR"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Td-VM-s5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="416.80000000000001" y="2353.6731634182911"/>
+            <point key="canvasLocation" x="1758" y="2388"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="c2n-MC-Oil">
+            <objects>
+                <viewController id="1L5-Hj-0Sj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JY3-dv-l3r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Nhd-Ki-Gp5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZk-1Y-R7A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3492" y="2371.6641679160421"/>
+        </scene>
+        <!--Detail User View Controller-->
+        <scene sceneID="TtQ-aS-u27">
+            <objects>
+                <viewController id="Bud-Tj-CwM" customClass="FAQDetailUserViewController" customModule="FlatsyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Doi-Pb-JyT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="UZF-FS-glM"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mSI-zb-U3h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1918" y="2955"/>
         </scene>
         <!--FAQ-->
         <scene sceneID="ahq-7o-b57">
@@ -628,12 +649,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GR1-RV-SDH">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="FAQ" id="9eP-h2-L5Y"/>
-                                </items>
-                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Aej-n6-PQ1">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -651,22 +666,22 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="GR1-RV-SDH" firstAttribute="top" secondItem="Ko7-iv-q7X" secondAttribute="top" id="04X-Xe-bMG"/>
                             <constraint firstItem="Aej-n6-PQ1" firstAttribute="bottom" secondItem="Ko7-iv-q7X" secondAttribute="bottom" id="5p5-bv-sAB"/>
-                            <constraint firstItem="Aej-n6-PQ1" firstAttribute="top" secondItem="GR1-RV-SDH" secondAttribute="bottom" id="EhW-0H-LTR"/>
-                            <constraint firstItem="GR1-RV-SDH" firstAttribute="leading" secondItem="Ko7-iv-q7X" secondAttribute="leading" id="NVA-au-bwd"/>
+                            <constraint firstItem="Aej-n6-PQ1" firstAttribute="top" secondItem="Ko7-iv-q7X" secondAttribute="top" id="7qh-g4-RgY"/>
                             <constraint firstItem="Aej-n6-PQ1" firstAttribute="leading" secondItem="Ko7-iv-q7X" secondAttribute="leading" id="USt-2i-3fF"/>
-                            <constraint firstItem="GR1-RV-SDH" firstAttribute="trailing" secondItem="Ko7-iv-q7X" secondAttribute="trailing" id="VOo-I7-0g1"/>
                             <constraint firstItem="Aej-n6-PQ1" firstAttribute="trailing" secondItem="Ko7-iv-q7X" secondAttribute="trailing" id="cWp-bV-ZBC"/>
                             <constraint firstItem="Ko7-iv-q7X" firstAttribute="bottom" secondItem="Aej-n6-PQ1" secondAttribute="bottom" id="tTk-r7-Hpb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ko7-iv-q7X"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="FAQ" id="xQ6-6R-3Et"/>
+                    <navigationItem key="navigationItem" title="FAQ" id="UKv-AA-WD8"/>
+                    <connections>
+                        <segue destination="Bud-Tj-CwM" kind="show" id="JaX-5d-1Xm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p1i-la-6G8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1170" y="2803"/>
+            <point key="canvasLocation" x="-231.19999999999999" y="2802.5487256371816"/>
         </scene>
         <!--Pagos-->
         <scene sceneID="f2d-W0-Gzq">
@@ -676,12 +691,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e7g-0b-zWd">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Pagos" id="816-8R-28K"/>
-                                </items>
-                            </navigationBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Upn-gD-CRu">
                                 <rect key="frame" x="80" y="74" width="215" height="29"/>
                                 <segments>
@@ -706,29 +715,44 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Upn-gD-CRu" firstAttribute="top" secondItem="e7g-0b-zWd" secondAttribute="bottom" constant="10" id="5OT-LZ-aA2"/>
                             <constraint firstItem="QRm-D6-B8a" firstAttribute="leading" secondItem="ciU-3p-fgJ" secondAttribute="leading" id="9Q5-Hn-Vec"/>
                             <constraint firstItem="ciU-3p-fgJ" firstAttribute="trailing" secondItem="QRm-D6-B8a" secondAttribute="trailing" id="DJd-vf-2si"/>
                             <constraint firstItem="QRm-D6-B8a" firstAttribute="top" secondItem="Upn-gD-CRu" secondAttribute="bottom" constant="10" id="N8M-dm-OkK"/>
-                            <constraint firstItem="e7g-0b-zWd" firstAttribute="leading" secondItem="ciU-3p-fgJ" secondAttribute="leading" id="R5X-E0-MAm"/>
                             <constraint firstItem="ciU-3p-fgJ" firstAttribute="bottom" secondItem="QRm-D6-B8a" secondAttribute="bottom" id="hkV-wD-o17"/>
-                            <constraint firstItem="e7g-0b-zWd" firstAttribute="trailing" secondItem="ciU-3p-fgJ" secondAttribute="trailing" id="iUO-bI-lci"/>
-                            <constraint firstItem="e7g-0b-zWd" firstAttribute="top" secondItem="ciU-3p-fgJ" secondAttribute="top" id="o7R-G3-ItT"/>
                             <constraint firstItem="Upn-gD-CRu" firstAttribute="leading" secondItem="ciU-3p-fgJ" secondAttribute="leading" constant="80" id="sbh-7V-K7c"/>
+                            <constraint firstItem="Upn-gD-CRu" firstAttribute="top" secondItem="ciU-3p-fgJ" secondAttribute="top" constant="10" id="tQH-qk-IBp"/>
                             <constraint firstItem="ciU-3p-fgJ" firstAttribute="trailing" secondItem="Upn-gD-CRu" secondAttribute="trailing" constant="80" id="tYa-ht-IMP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ciU-3p-fgJ"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Pagos" id="Lds-J1-kXA"/>
+                    <navigationItem key="navigationItem" title="Pagos" id="F0g-ni-2Mi"/>
+                    <connections>
+                        <segue destination="bUf-40-VGF" kind="show" id="vGG-mS-zEO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ogl-H4-nQ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="417" y="3065"/>
+            <point key="canvasLocation" x="1758" y="3099"/>
+        </scene>
+        <!--Pagos Detail User View Controller-->
+        <scene sceneID="X8Q-uf-Zpm">
+            <objects>
+                <viewController id="bUf-40-VGF" customClass="PagosDetailUserViewController" customModule="FlatsyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5cj-5Y-TG0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="kW2-SG-Dfq"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Ia-pt-7XX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3340" y="3098.5007496251878"/>
         </scene>
         <!--Dashboard-->
         <scene sceneID="ciC-fk-zqG">
             <objects>
-                <viewController id="gwE-da-aEA" sceneMemberID="viewController">
+                <viewController id="gwE-da-aEA" customClass="DashboardUserViewController" customModule="FlatsyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eBJ-8w-oaE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -765,9 +789,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="gwE-da-aEA" kind="relationship" relationship="viewControllers" id="ghR-Od-w7I"/>
-                        <segue destination="VSc-5N-KzH" kind="relationship" relationship="viewControllers" id="bga-ec-WIi"/>
-                        <segue destination="T47-BA-2HN" kind="relationship" relationship="viewControllers" id="wA1-6t-Qho"/>
-                        <segue destination="vAO-he-pGj" kind="relationship" relationship="viewControllers" id="SPD-R4-a3W"/>
+                        <segue destination="vcr-JB-wGu" kind="relationship" relationship="viewControllers" id="bga-ec-WIi"/>
+                        <segue destination="wy8-44-bll" kind="relationship" relationship="viewControllers" id="wA1-6t-Qho"/>
+                        <segue destination="Dqi-wl-jxd" kind="relationship" relationship="viewControllers" id="SPD-R4-a3W"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="25Q-5Z-iob" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1362,8 +1386,65 @@
             </objects>
             <point key="canvasLocation" x="516" y="590.55472263868069"/>
         </scene>
+        <!--Avisos-->
+        <scene sceneID="joj-am-cX5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vcr-JB-wGu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Avisos" id="6dF-2g-Kmi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CEC-Rl-D5v">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="VSc-5N-KzH" kind="relationship" relationship="rootViewController" id="i44-xL-Rqs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JKJ-91-CtP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="818" y="2388"/>
+        </scene>
+        <!--Pagos-->
+        <scene sceneID="FMt-Z4-O2c">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="wy8-44-bll" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Pagos" id="Lds-J1-kXA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oMn-jj-IIo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="T47-BA-2HN" kind="relationship" relationship="rootViewController" id="Qo6-Nx-0fW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VPe-zf-HWe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="818" y="3099"/>
+        </scene>
+        <!--FAQ-->
+        <scene sceneID="dS2-7D-2s9">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dqi-wl-jxd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="FAQ" id="xQ6-6R-3Et"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mBp-Sg-dUa">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vAO-he-pGj" kind="relationship" relationship="rootViewController" id="KEu-x3-Ij6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a26-8W-n96" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1170.4000000000001" y="2802.5487256371816"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dCq-2e-vfa"/>
+        <segue reference="7He-pH-KjU"/>
     </inferredMetricsTieBreakers>
 </document>
