@@ -10,10 +10,20 @@ import UIKit
 
 class PagosDetailUserViewController: UIViewController {
 
+    var pago: Pago?
+
+    @IBOutlet weak var conceptoLabel: UILabel!
+    @IBOutlet weak var descripcionLabel: UILabel!
+    @IBOutlet weak var precioLabel: UILabel!
+    @IBOutlet weak var diaPagoLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        conceptoLabel.text = pago?.concepto
+        descripcionLabel.text = pago?.descripcion
+        precioLabel.text = pago?.precio.description
+        diaPagoLabel.text = pago?.dia_pago.description
     }
 
     override func didReceiveMemoryWarning() {

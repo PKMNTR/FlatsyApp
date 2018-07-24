@@ -10,10 +10,20 @@ import UIKit
 
 class AvisosDetailUserViewController: UIViewController {
 
+    var aviso: Aviso?
+
+    @IBOutlet weak var tituloLabel: UILabel!
+    @IBOutlet weak var descripcionLabel: UILabel!
+    @IBOutlet weak var fechaLabel: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tituloLabel.text = aviso?.titulo
+        descripcionLabel.text = aviso?.descripcion
+        if let fecha = aviso?.fecha{
+             fechaLabel.setDate(fecha, animated: true)
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -10,6 +10,14 @@ import UIKit
 
 class PagosUserTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var conceptoLabel : UILabel!
+
+    func rellenar(pago: Pago){
+        conceptoLabel.text = pago.concepto
+        conceptoLabel.sizeToFit()
+    }
+
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

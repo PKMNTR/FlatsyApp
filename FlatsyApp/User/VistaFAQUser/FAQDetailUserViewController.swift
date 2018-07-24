@@ -10,10 +10,16 @@ import UIKit
 
 class FAQDetailViewController: UIViewController {
 
+    var pregunta: Pregunta?
+
+    @IBOutlet weak var preguntaField: UILabel!
+    @IBOutlet weak var respuestaField: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        preguntaLabel.text = pregunta?.pregunta
+        respuestaLabel.text = pregunta?.respuesta
     }
 
     override func didReceiveMemoryWarning() {

@@ -10,6 +10,13 @@ import UIKit
 
 class FAQUserTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var preguntaLabel : UILabel!
+
+    func rellenar(pregunta: Pregunta){
+        preguntaLabel.text = pregunta.pregunta
+        preguntaLabel.sizeToFit()
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

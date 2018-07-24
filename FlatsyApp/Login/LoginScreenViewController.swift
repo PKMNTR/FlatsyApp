@@ -60,11 +60,6 @@ class LoginScreenViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     @IBAction func onTapSendButton(){
         if self.signin == true{
             registerUser()

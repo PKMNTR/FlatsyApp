@@ -10,6 +10,13 @@ import UIKit
 
 class AvisosUserTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var testLabel : UILabel!
+
+    func rellenar(aviso: Aviso){
+        testLabel.text = aviso.titulo
+        testLabel.sizeToFit()
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
