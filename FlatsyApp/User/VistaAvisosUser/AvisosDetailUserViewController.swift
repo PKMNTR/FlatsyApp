@@ -15,15 +15,16 @@ class AvisosDetailUserViewController: UIViewController {
     @IBOutlet weak var tituloLabel: UILabel!
     @IBOutlet weak var descripcionLabel: UILabel!
     @IBOutlet weak var fechaLabel: UILabel!
+    
+    let dateFormatter = DateFormatter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        dateFormatter.dateStyle = .medium
         tituloLabel.text = aviso?.titulo
         descripcionLabel.text = aviso?.descripcion
-        if let fecha = aviso?.fecha{
-             fechaLabel.setDate(fecha, animated: true)
-        }
+        fechaLabel.text = dateFormatter.string(from: (aviso?.fecha)!)
     }
 
     override func didReceiveMemoryWarning() {

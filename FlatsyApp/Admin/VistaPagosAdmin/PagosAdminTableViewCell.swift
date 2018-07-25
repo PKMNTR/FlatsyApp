@@ -11,10 +11,13 @@ import UIKit
 class PagosAdminTableViewCell: UITableViewCell {
 
     @IBOutlet weak var conceptoLabel : UILabel!
+    @IBOutlet weak var precioLabel: UILabel!
 
     func rellenar(pago: Pago){
         conceptoLabel.text = pago.concepto
         conceptoLabel.sizeToFit()
+        
+        precioLabel.text = String(format: "%f", pago.precio)
     }
 
     override func awakeFromNib() {

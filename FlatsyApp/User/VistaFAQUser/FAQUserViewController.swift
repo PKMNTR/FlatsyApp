@@ -79,7 +79,7 @@ class FAQUserViewController: UIViewController {
         if(segue.identifier == "DetailFAQUser") {
             selectedPregunta = preguntas[selectedIndex]
             
-            let vc = segue.destination as! DetailFAQAdminViewController
+            let vc = segue.destination as! FAQDetailUserViewController
             vc.pregunta = selectedPregunta
         }
     }
@@ -92,7 +92,7 @@ extension FAQUserViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = preguntasTable.dequeueReusableCell(withIdentifier: "FAQUserCell") as! FAQAdminTableViewCell
+        let cell = preguntasTable.dequeueReusableCell(withIdentifier: "FAQUserCell") as! FAQUserTableViewCell
         let pregunta = preguntas[indexPath.row]
         print(pregunta.pregunta)
         cell.rellenar(pregunta: pregunta)

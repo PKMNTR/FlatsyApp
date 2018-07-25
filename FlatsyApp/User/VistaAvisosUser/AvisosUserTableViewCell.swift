@@ -10,12 +10,14 @@ import UIKit
 
 class AvisosUserTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var testLabel : UILabel!
+    @IBOutlet weak var descripcionLabel: UILabel!
+    @IBOutlet weak var tituloLabel : UILabel!
 
     func rellenar(aviso: Aviso){
-        testLabel.text = aviso.titulo
-        testLabel.sizeToFit()
-    }
+        tituloLabel.text = aviso.titulo
+        tituloLabel.sizeToFit()
+        descripcionLabel.text = aviso.descripcion
+        }
 
     override func awakeFromNib() {
         super.awakeFromNib()

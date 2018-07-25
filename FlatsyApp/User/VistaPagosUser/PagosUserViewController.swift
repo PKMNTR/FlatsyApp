@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class PagosUserViewController: UIViewController {
 
@@ -74,11 +75,9 @@ class PagosUserViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "DetailPagoUser") {
             selectedPago = pagos[selectedIndex]
-            selectedDocumentRef = documents[selectedIndex].reference
             
-            let vc = segue.destination as! DetailPagoAdminViewController
+            let vc = segue.destination as! PagosDetailUserViewController
             vc.pago = selectedPago
-            vc.pagoReference = selectedDocumentRef
         }
     } 
 
@@ -90,7 +89,7 @@ extension PagosUserViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = pagosTable.dequeueReusableCell(withIdentifier: "PagoUserCell") as! PagosAdminTableViewCell
+        let cell = pagosTable.dequeueReusableCell(withIdentifier: "PagoUserCell") as! PagosUserTableViewCell
         let pago = pagos[indexPath.row]
         print(pago.concepto)
         cell.rellenar(pago: pago)

@@ -11,10 +11,17 @@ import UIKit
 class AvisosAdminTableViewCell: UITableViewCell {
     
     @IBOutlet weak var testLabel : UILabel!
+    @IBOutlet weak var fechaLabel: UILabel!
+   
+    let dateFormatter = DateFormatter()
 
     func rellenar(aviso: Aviso){
+        dateFormatter.dateStyle = .medium
+        
         testLabel.text = aviso.titulo
         testLabel.sizeToFit()
+        
+        fechaLabel.text = dateFormatter.string(from: aviso.fecha)
     }
 
     override func awakeFromNib() {

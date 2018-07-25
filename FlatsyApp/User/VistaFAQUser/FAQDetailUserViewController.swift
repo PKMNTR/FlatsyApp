@@ -8,12 +8,12 @@
 
 import UIKit
 
-class FAQDetailViewController: UIViewController {
+class FAQDetailUserViewController: UIViewController {
 
     var pregunta: Pregunta?
 
-    @IBOutlet weak var preguntaField: UILabel!
-    @IBOutlet weak var respuestaField: UILabel!
+    @IBOutlet weak var preguntaLabel: UILabel!
+    @IBOutlet weak var respuestaLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()

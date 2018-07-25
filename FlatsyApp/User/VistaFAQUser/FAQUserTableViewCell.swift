@@ -11,6 +11,7 @@ import UIKit
 class FAQUserTableViewCell: UITableViewCell {
 
     @IBOutlet weak var preguntaLabel : UILabel!
+    @IBOutlet weak var respuestaLabel: UILabel!
 
     func rellenar(pregunta: Pregunta){
         preguntaLabel.text = pregunta.pregunta

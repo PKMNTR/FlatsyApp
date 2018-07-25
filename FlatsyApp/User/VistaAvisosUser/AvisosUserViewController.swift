@@ -30,9 +30,6 @@ class AvisosUserViewController: UIViewController {
         }   
     }
     
-    var selectedAviso: Aviso?
-    var selectedDocumentRef: DocumentReference?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -75,7 +72,7 @@ class AvisosUserViewController: UIViewController {
 
             selectedAviso = avisos[selectedIndex]
 
-            let vc = segue.destination as! DetailAvisoAdminViewController
+            let vc = segue.destination as! AvisosDetailUserViewController
             vc.aviso = selectedAviso
         }
     }
@@ -99,7 +96,7 @@ extension AvisosUserViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = avisosTable.dequeueReusableCell(withIdentifier: "AvisoUserCell") as! AvisosAdminTableViewCell
+        let cell = avisosTable.dequeueReusableCell(withIdentifier: "AvisoUserCell") as! AvisosUserTableViewCell
         let aviso = avisos[indexPath.row]
         print(aviso.titulo)
         cell.rellenar(aviso: aviso)
@@ -108,7 +105,7 @@ extension AvisosUserViewController: UITableViewDataSource {
 }
 
 extension AvisosUserViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         selectedIndex = indexPath.row
         performSegue(withIdentifier: "DetailAvisoUser", sender: self)
     }    
