@@ -28,6 +28,8 @@ class FAQUserViewController: UIViewController {
             }
         }   
     }
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +42,9 @@ class FAQUserViewController: UIViewController {
     }
 
     func baseQuery()->Query{
+        let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("faq")
+            .whereField("comunidad", isEqualTo: comunidad)
     }
 
     override func viewWillAppear(_ animated: Bool) {

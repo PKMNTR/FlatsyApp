@@ -29,6 +29,8 @@ class PagosUserViewController: UIViewController {
             }
         }   
     }
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,10 @@ class PagosUserViewController: UIViewController {
     }
 
     func baseQuery()->Query{
+        let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("pagos")
+            .whereField("comunidad", isEqualTo: comunidad)
+        
     }
 
      override func viewWillAppear(_ animated: Bool) {

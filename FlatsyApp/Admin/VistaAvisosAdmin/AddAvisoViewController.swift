@@ -34,13 +34,14 @@ class AddAvisoViewController: UIViewController {
         let comunidad = defaults.object(forKey: "comunidad") as! String
 
         let collection = Firestore.firestore().collection("comunicados")
+        let junta = juntaSwitch.isOn
 
         let aviso = Aviso(
             comunidad: comunidad,
             descripcion: descripcion,
             fecha: NSDate(timeIntervalSince1970: fecha) as Date,
             titulo: titulo,
-            junta: true
+            junta: junta
         )
 
         ref = collection.addDocument(data: aviso.diccionario){ err in

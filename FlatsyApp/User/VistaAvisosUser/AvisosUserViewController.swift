@@ -22,6 +22,8 @@ class AvisosUserViewController: UIViewController {
 
     var selectedIndex = Int()
     
+    let defaults = UserDefaults.standard
+    
     var query : Query?{
         didSet {
             if let listener = listener{
@@ -41,16 +43,34 @@ class AvisosUserViewController: UIViewController {
     }
 
     func baseQuery()->Query{
+        let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("comunicados")
+            .whereField("comunidad", isEqualTo: comunidad)
+    }
+    
+    func baseQueryAvisos()->Query{
+        let comunidad = defaults.object(forKey: "comunidad") as! String
+        return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: true)
+            .whereField("comunidad", isEqualTo: comunidad)
+    }
+    
+    func baseQueryJuntas()->Query{
+        let comunidad = defaults.object(forKey: "comunidad") as! String
+        return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: false)
+            .whereField("comunidad", isEqualTo: comunidad)
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        callSnapshot()
+    }
+    
+    func callSnapshot(){
         self.listener = query?.addSnapshotListener{(documents, error) in
             guard let snapshot = documents else{
                 print("error")
                 return
             }
-                        
+            
             let results = snapshot.documents.map{(document) -> Aviso in
                 if let result = Aviso(diccionario: document.data()){
                     return result
@@ -66,7 +86,20 @@ class AvisosUserViewController: UIViewController {
             self.avisosTable.reloadData()
         }
     }
-
+    @IBAction func segmentedChange(_ sender: Any) {
+        
+        switch seleccionTipoAviso.selectedSegmentIndex{
+        case 0:
+            self.query = baseQueryJuntas()
+            callSnapshot()
+        case 1:
+            self.query = baseQueryAvisos()
+            callSnapshot()
+        default:
+            break
+        }
+    }
+    
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "DetailAvisoUser") {
 
