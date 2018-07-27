@@ -17,6 +17,8 @@ class DetailAvisoAdminViewController: UIViewController {
     @IBOutlet weak var tituloField: UITextField!
     @IBOutlet weak var descripcionField: UITextView!
     @IBOutlet weak var fechaField: UIDatePicker!
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class DetailAvisoAdminViewController: UIViewController {
        
         // Do any additional setup after loading the view.
     }
+    
 
    @IBAction func onTapUpdateAviso(_ sender: Any)
    {
@@ -36,13 +39,15 @@ class DetailAvisoAdminViewController: UIViewController {
            let descripcion = descripcionField.text,
            let fecha = fechaField?.date.timeIntervalSince1970
            else {return}
-
+    
+    let comunidad = defaults.object(forKey: "comunidad") as! String
        
        let aviso = Aviso(
-           comunidad:"asadas",
+           comunidad: comunidad,
            descripcion: descripcion,
            fecha: NSDate(timeIntervalSince1970: fecha) as Date,
-           titulo: titulo
+           titulo: titulo,
+           junta: true
        )
 
     avisoReference?.setData(aviso.diccionario, completion: { (error) in

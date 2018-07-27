@@ -17,6 +17,8 @@ class AddAvisoViewController: UIViewController {
     @IBOutlet weak var juntaSwitch: UISwitch!
     
     var ref: DocumentReference! = nil
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +30,17 @@ class AddAvisoViewController: UIViewController {
             let descripcion = descripcionField.text,
             let fecha = fechaField?.date.timeIntervalSince1970
             else {return}
+        
+        let comunidad = defaults.object(forKey: "comunidad") as! String
 
         let collection = Firestore.firestore().collection("comunicados")
 
         let aviso = Aviso(
-            comunidad:"asadas",
+            comunidad: comunidad,
             descripcion: descripcion,
             fecha: NSDate(timeIntervalSince1970: fecha) as Date,
-            titulo: titulo
+            titulo: titulo,
+            junta: true
         )
 
         ref = collection.addDocument(data: aviso.diccionario){ err in

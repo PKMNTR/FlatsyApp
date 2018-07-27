@@ -19,6 +19,8 @@ class AddFAQViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    let defaults = UserDefaults.standard
 
     @IBAction func onTapAddAviso(_ sender: Any)
     {
@@ -27,9 +29,11 @@ class AddFAQViewController: UIViewController {
             else {return}
 
         let collection = Firestore.firestore().collection("faq")
+        
+        let comunidad = defaults.object(forKey: "comunidad") as! String
 
         let preguntaModel = Pregunta(
-            comunidad:"asadas",
+            comunidad: comunidad,
             pregunta: pregunta,
             respuesta: respuesta
         )

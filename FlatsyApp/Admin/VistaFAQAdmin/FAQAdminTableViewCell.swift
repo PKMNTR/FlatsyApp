@@ -11,10 +11,12 @@ import UIKit
 class FAQAdminTableViewCell: UITableViewCell {
 
     @IBOutlet weak var preguntaLabel : UILabel!
+    @IBOutlet weak var respuestaLabel: UILabel!
 
     func rellenar(pregunta: Pregunta){
         preguntaLabel.text = pregunta.pregunta
         preguntaLabel.sizeToFit()
+        respuestaLabel.text = pregunta.respuesta
     }
 
     override func awakeFromNib() {

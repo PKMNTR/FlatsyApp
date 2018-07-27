@@ -24,9 +24,13 @@ class MiembrosViewController: UIViewController {
             }
         }   
     }
+    
+    let defaults = UserDefaults.standard
 
     func baseQuery()->Query{
+        let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("usuarios").whereField("admin", isEqualTo: false)
+            .whereField("comunidad", isEqualTo: comunidad)
     }
 
     override func viewDidLoad() {
@@ -35,11 +39,8 @@ class MiembrosViewController: UIViewController {
         miembrosTable.dataSource = self
         miembrosTable.delegate = self
         miembrosTable.rowHeight = 100
-//        avisosTable.rowHeight = UITableViewAutomaticDimension
     
         self.query = baseQuery()
-
-        // Do any additional setup after loading the view.
     }
 
     override func viewWillAppear(_ animated: Bool) {

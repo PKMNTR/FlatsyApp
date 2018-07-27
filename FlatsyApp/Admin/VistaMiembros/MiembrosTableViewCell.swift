@@ -11,10 +11,14 @@ import UIKit
 class MiembrosTableViewCell: UITableViewCell {
 
      @IBOutlet weak var nombreLabel : UILabel!
+     @IBOutlet weak var telefonoLabel : UILabel!
+     @IBOutlet weak var numeroLabel : UILabel!
 
     func rellenar(miembro: Miembro){
-        nombreLabel.text = miembro.nombre
+        nombreLabel.text = miembro.nombre + " " + miembro.apellidos
         nombreLabel.sizeToFit()
+        telefonoLabel.text = miembro.telefono
+        numeroLabel.text = miembro.numero_vivienda
     }
 
     override func awakeFromNib() {

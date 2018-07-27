@@ -30,6 +30,17 @@ class LoginScreenViewController: UIViewController {
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         
+        if defaults.bool(forKey: "entradoAntes") == false{
+        do{
+            try Auth.auth().signOut()
+        } catch{
+            print ("errror")
+        }
+            
+        defaults.set(true, forKey: "entradoAntes")
+        defaults.synchronize()
+        }
+        
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil{

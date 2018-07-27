@@ -16,8 +16,8 @@ class PagosAdminTableViewCell: UITableViewCell {
     func rellenar(pago: Pago){
         conceptoLabel.text = pago.concepto
         conceptoLabel.sizeToFit()
-        
-        precioLabel.text = String(format: "%f", pago.precio)
+
+        precioLabel.text = "$" + String(format: "%.2f", pago.precio)
     }
 
     override func awakeFromNib() {

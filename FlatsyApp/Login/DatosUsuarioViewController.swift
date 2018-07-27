@@ -50,9 +50,8 @@ class DatosUsuarioViewController: UIViewController {
                 "numero_vivienda": vivienda,
                 "email": email,
                 "comunidad": comunidad
-            ]) {
-                err in
-                if let err = err{
+            ]) { err in
+                if err == nil{
                     print("Error agregando documento")
                 }
                 else {

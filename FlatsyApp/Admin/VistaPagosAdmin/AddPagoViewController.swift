@@ -21,6 +21,8 @@ class AddPagoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    let defaults = UserDefaults.standard
 
     @IBAction func onTapAddAviso(_ sender: Any)
     {
@@ -31,9 +33,11 @@ class AddPagoViewController: UIViewController {
             else {return}
 
         let collection = Firestore.firestore().collection("pagos")
+        
+        let comunidad = defaults.object(forKey: "comunidad") as! String
 
         let pago = Pago(
-            comunidad:"asadas",
+            comunidad: comunidad,
             concepto: concepto,
             dia_pago: Int(diaPago)!,
             precio: Double(precio)!,
