@@ -24,6 +24,7 @@ class AvisosDetailUserViewController: UIViewController {
         dateFormatter.dateStyle = .medium
         tituloLabel.text = aviso?.titulo
         descripcionLabel.text = aviso?.descripcion
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         fechaLabel.text = dateFormatter.string(from: (aviso?.fecha)!)
     }
 

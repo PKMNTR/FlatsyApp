@@ -17,6 +17,8 @@ class DatosUsuarioViewController: UIViewController {
     @IBOutlet weak var viviendaField: UITextField!
 
     var db: Firestore!
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,10 +39,12 @@ class DatosUsuarioViewController: UIViewController {
                 return
             }
 
-            let defaults = UserDefaults.standard
-            let uid = defaults.object(forKey: "UID") as! String
-            let email = defaults.object(forKey: "email") as! String
-            let comunidad = defaults.object(forKey: "comunidad") as! String
+        
+        
+            self.defaults.set(nombre, forKey: "nombre")
+            let uid = self.defaults.object(forKey: "UID") as! String
+            let email = self.defaults.object(forKey: "email") as! String
+            let comunidad = self.defaults.object(forKey: "comunidad") as! String
 
             db.collection("usuarios").document(uid).setData([
                 "nombre": nombre,
@@ -51,7 +55,7 @@ class DatosUsuarioViewController: UIViewController {
                 "email": email,
                 "comunidad": comunidad
             ]) { err in
-                if err == nil{
+                if err != nil{
                     print("Error agregando documento")
                 }
                 else {

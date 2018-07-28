@@ -102,8 +102,8 @@ class LoginScreenViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
                 if user != nil{
                     print("Usuario autenticsdo")
-                    guard let uid = user?.user.uid,
-                        let email = user?.user.email else{
+                    guard let uid = user?.uid,
+                        let email = user?.email else{
                         return
                     }
 
@@ -155,8 +155,8 @@ class LoginScreenViewController: UIViewController {
                     
                     // let values = ["name": email]
                     
-                    guard let uid = user?.user.uid,
-                        let email = user?.user.email else{
+                    guard let uid = user?.uid,
+                        let email = user?.email else{
                         return
                     }
 

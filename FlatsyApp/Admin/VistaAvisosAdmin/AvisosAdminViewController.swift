@@ -37,18 +37,21 @@ class AvisosAdminViewController: UIViewController {
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("comunicados")
             .whereField("comunidad", isEqualTo: comunidad)
+            .order(by: "fecha", descending: true)
     }
 
     func baseQueryAvisos()->Query{
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: true)
             .whereField("comunidad", isEqualTo: comunidad)
+        .order(by: "fecha", descending: true)
     }
 
     func baseQueryJuntas()->Query{
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: false)
             .whereField("comunidad", isEqualTo: comunidad)
+            .order(by: "fecha", descending: true)
     }
 
    override func viewDidLoad() {

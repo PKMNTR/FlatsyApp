@@ -16,6 +16,8 @@ class FAQUserTableViewCell: UITableViewCell {
     func rellenar(pregunta: Pregunta){
         preguntaLabel.text = pregunta.pregunta
         preguntaLabel.sizeToFit()
+        
+        respuestaLabel.text = pregunta.respuesta
     }
 
     override func awakeFromNib() {
