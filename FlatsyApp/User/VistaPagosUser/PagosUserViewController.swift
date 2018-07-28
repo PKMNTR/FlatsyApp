@@ -46,7 +46,7 @@ class PagosUserViewController: UIViewController {
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("pagos")
             .whereField("comunidad", isEqualTo: comunidad)
-            .order(by: "fecha", descending: true)
+//            .order(by: "fecha", descending: true)
         
     }
 

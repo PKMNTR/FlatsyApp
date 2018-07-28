@@ -46,7 +46,7 @@ class AvisosUserViewController: UIViewController {
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("comunicados")
             .whereField("comunidad", isEqualTo: comunidad)
-            .order(by: "fecha", descending: true)
+//            .order(by: "fecha", descending: true)
     }
     
     func baseQueryAvisos()->Query{

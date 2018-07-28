@@ -101,9 +101,26 @@ extension MiembrosViewController: UITableViewDataSource{
 extension MiembrosViewController: UITableViewDelegate{
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-    if editingStyle == .delete {
-        let aviso = documents[indexPath.row]
-        aviso.reference.delete()
+        if editingStyle == .delete {
+            let aviso = documents[indexPath.row]
+            aviso.reference.delete()
+        }
     }
-  }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        var urlComponent = URLComponents()
+        
+        let miembro = miembros[indexPath.row]
+        
+        let mensajito = "Hola"
+        
+        urlComponent.scheme = "https"
+        urlComponent.host = "wa.me"
+        urlComponent.path = "/52\(miembro.telefono)"
+        urlComponent.query = "text=\(mensajito)"
+        guard let url = urlComponent.url else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
 }
