@@ -84,5 +84,18 @@ class DatosUsuarioViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
 
+extension DatosUsuarioViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        nombreField.resignFirstResponder()
+        apellidosField.resignFirstResponder()
+        telefonoField.resignFirstResponder()
+        viviendaField.resignFirstResponder()
+    }
 }

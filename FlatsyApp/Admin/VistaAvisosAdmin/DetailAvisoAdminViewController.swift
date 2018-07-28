@@ -23,6 +23,8 @@ class DetailAvisoAdminViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        descripcionField!.layer.borderWidth = 1
+        descripcionField!.layer.borderColor = UIColor.gray.cgColor
         tituloField.text = aviso?.titulo
         descripcionField.text = aviso?.descripcion
         if let fecha = aviso?.fecha{
@@ -75,4 +77,17 @@ class DetailAvisoAdminViewController: UIViewController {
     }
     */
 
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        tituloField.resignFirstResponder()
+        descripcionField.endEditing(false)
+    }
+}
+
+extension DetailAvisoAdminViewController: UITextViewDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    
 }

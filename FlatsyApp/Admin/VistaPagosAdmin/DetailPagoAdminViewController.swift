@@ -13,7 +13,6 @@ class DetailPagoAdminViewController: UIViewController {
 
     var pago: Pago?
     var pagoReference: DocumentReference?
-//
     @IBOutlet weak var conceptoField: UITextField!
     @IBOutlet weak var descripcionField: UITextView!
     @IBOutlet weak var precioField: UITextField!
@@ -22,6 +21,8 @@ class DetailPagoAdminViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        descripcionField!.layer.borderWidth = 1
+        descripcionField!.layer.borderColor = UIColor.gray.cgColor
        conceptoField.text = pago?.concepto
        descripcionField.text = pago?.descripcion
        precioField.text = pago?.precio.description
@@ -76,5 +77,18 @@ class DetailPagoAdminViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        conceptoField.resignFirstResponder()
+        descripcionField.endEditing(false)
+        precioField.resignFirstResponder()
+        diaPagoField.resignFirstResponder()
+    }
+    
+}
 
+extension DetailPagoAdminViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

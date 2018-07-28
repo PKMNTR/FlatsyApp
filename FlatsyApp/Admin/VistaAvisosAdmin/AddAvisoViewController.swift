@@ -22,6 +22,8 @@ class AddAvisoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        descripcionField!.layer.borderWidth = 1
+        descripcionField!.layer.borderColor = UIColor.gray.cgColor
     }
 
     @IBAction func onTapAddAviso(_ sender: Any)
@@ -66,6 +68,18 @@ class AddAvisoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
+
+extension AddAvisoViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        tituloField.resignFirstResponder()
+        descripcionField.endEditing(false)
+    }
+}
+
+

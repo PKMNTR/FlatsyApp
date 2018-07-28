@@ -16,7 +16,7 @@ class LoginScreenViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var loginText: UILabel!
-
+    
     var signin: Bool = true
 
     var db: Firestore!
@@ -69,6 +69,9 @@ class LoginScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        passwordField.delegate = self
+        emailField.delegate = self
     }
 
     @IBAction func onTapSendButton(){
@@ -197,4 +200,16 @@ class LoginScreenViewController: UIViewController {
     // override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     // }
+}
+
+extension LoginScreenViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func dismisKeyboard(_ sender: Any) {
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
+    }
 }

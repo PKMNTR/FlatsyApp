@@ -18,6 +18,9 @@ class AddFAQViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        respuestaField!.layer.borderWidth = 1
+        respuestaField!.layer.borderColor = UIColor.gray.cgColor
     }
     
     let defaults = UserDefaults.standard
@@ -61,5 +64,16 @@ class AddFAQViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        preguntaField.resignFirstResponder()
+        respuestaField.endEditing(false)
+    }
+    
+}
 
+extension AddFAQViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

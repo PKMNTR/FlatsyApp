@@ -22,6 +22,9 @@ class DetailFAQAdminViewController: UIViewController {
         
         preguntaField.text = pregunta?.pregunta
         respuestaField.text = pregunta?.respuesta
+        
+        respuestaField!.layer.borderWidth = 1
+        respuestaField!.layer.borderColor = UIColor.gray.cgColor
        
         // Do any additional setup after loading the view.
     }
@@ -53,7 +56,11 @@ class DetailFAQAdminViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        preguntaField.resignFirstResponder()
+        respuestaField.endEditing(false)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -64,4 +71,11 @@ class DetailFAQAdminViewController: UIViewController {
     }
     */
 
+}
+
+extension DetailFAQAdminViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

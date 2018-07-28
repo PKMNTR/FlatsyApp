@@ -20,6 +20,8 @@ class AddPagoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        descripcionField!.layer.borderWidth = 1
+        descripcionField!.layer.borderColor = UIColor.gray.cgColor
     }
     
     let defaults = UserDefaults.standard
@@ -68,6 +70,16 @@ class AddPagoViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        conceptoField.resignFirstResponder()
+        precioField.resignFirstResponder()
+    }
+}
 
-
+extension AddPagoViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

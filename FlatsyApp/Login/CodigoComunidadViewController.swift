@@ -51,5 +51,16 @@ class CodigoComunidadViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
 
+extension CodigoComunidadViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func dismissKeyboard(_ sender: Any) {
+        codigoField.resignFirstResponder()
+    }
+    
 }
