@@ -46,8 +46,6 @@ class PagosUserViewController: UIViewController {
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("pagos")
             .whereField("comunidad", isEqualTo: comunidad)
-//            .order(by: "fecha", descending: true)
-        
     }
 
      override func viewWillAppear(_ animated: Bool) {
@@ -68,6 +66,8 @@ class PagosUserViewController: UIViewController {
             
             self.pagos = results
             self.documents = snapshot.documents
+            
+            self.pagos = self.pagos.sorted(by: {$0.fecha.timeIntervalSince1970 > $1.fecha.timeIntervalSince1970})
             
             self.pagosTable.reloadData()
         }

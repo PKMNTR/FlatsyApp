@@ -27,6 +27,10 @@ class AvisosDetailUserViewController: UIViewController {
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         fechaLabel.text = dateFormatter.string(from: (aviso?.fecha)!)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

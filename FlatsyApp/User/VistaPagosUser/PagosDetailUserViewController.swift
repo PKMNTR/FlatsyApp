@@ -25,6 +25,10 @@ class PagosDetailUserViewController: UIViewController {
         precioLabel.text = pago?.precio.description
         diaPagoLabel.text = pago?.dia_pago.description
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

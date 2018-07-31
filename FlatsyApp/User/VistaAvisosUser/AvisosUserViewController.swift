@@ -46,21 +46,18 @@ class AvisosUserViewController: UIViewController {
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("comunicados")
             .whereField("comunidad", isEqualTo: comunidad)
-//            .order(by: "fecha", descending: true)
     }
     
     func baseQueryAvisos()->Query{
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: true)
             .whereField("comunidad", isEqualTo: comunidad)
-            .order(by: "fecha", descending: true)
     }
     
     func baseQueryJuntas()->Query{
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: false)
             .whereField("comunidad", isEqualTo: comunidad)
-            .order(by: "fecha", descending: true)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -85,6 +82,8 @@ class AvisosUserViewController: UIViewController {
             
             self.avisos = results
             self.documents = snapshot.documents
+            
+            self.avisos = self.avisos.sorted(by: {$0.fecha.timeIntervalSince1970 > $1.fecha.timeIntervalSince1970})
             
             self.avisosTable.reloadData()
         }

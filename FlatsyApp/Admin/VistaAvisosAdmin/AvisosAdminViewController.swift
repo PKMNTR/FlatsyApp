@@ -37,21 +37,18 @@ class AvisosAdminViewController: UIViewController {
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("comunicados")
             .whereField("comunidad", isEqualTo: comunidad)
-//            .order(by: "fecha", descending: true)
     }
 
     func baseQueryAvisos()->Query{
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: true)
             .whereField("comunidad", isEqualTo: comunidad)
-        .order(by: "fecha", descending: true)
     }
 
     func baseQueryJuntas()->Query{
         let comunidad = defaults.object(forKey: "comunidad") as! String
         return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: false)
             .whereField("comunidad", isEqualTo: comunidad)
-            .order(by: "fecha", descending: true)
     }
 
    override func viewDidLoad() {
@@ -61,16 +58,16 @@ class AvisosAdminViewController: UIViewController {
         avisosTable.delegate = self
         avisosTable.rowHeight = 100
 //        avisosTable.rowHeight = UITableViewAutomaticDimension
-    
-        self.query = baseQuery()       
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        self.query = baseQuery()
         callSnapshot()
+        
     }
    
     @IBAction func segementedChanged(_ sender: Any) {
-        
+
         switch seleccionTipoAviso.selectedSegmentIndex{
         case 0:
             self.query = baseQueryJuntas()
@@ -84,7 +81,10 @@ class AvisosAdminViewController: UIViewController {
     }
     
     func callSnapshot(){
-        self.listener = query?.addSnapshotListener{(documents, error) in
+        guard let query = query else {return}
+        listener?.remove()
+        
+        self.listener = query.addSnapshotListener{(documents, error) in
             guard let snapshot = documents else{
                 print("error")
                 return
@@ -101,6 +101,8 @@ class AvisosAdminViewController: UIViewController {
             
             self.avisos = results
             self.documents = snapshot.documents
+            
+            self.avisos = self.avisos.sorted(by: {$0.fecha.timeIntervalSince1970 > $1.fecha.timeIntervalSince1970})
             
             self.avisosTable.reloadData()
         }
@@ -135,11 +137,6 @@ extension AvisosAdminViewController: UITableViewDataSource{
 
 extension AvisosAdminViewController: UITableViewDelegate{
    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-//    let detail = self.storyboard?.instantiateViewController(withIdentifier: "DetailAvisoCtrl") as? DetailAvisoAdminViewController
-//
-//    detail?.aviso = avisos[indexPath.row]
-//    detail?.avisoReference = documents[indexPath.row].reference
-//    self.navigationController?.pushViewController(detail!, animated: true)
     selectedIndex = indexPath.row
     performSegue(withIdentifier: "DetailAvisoAdmin", sender: self)
     }
