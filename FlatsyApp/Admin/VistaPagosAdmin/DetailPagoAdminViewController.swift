@@ -40,8 +40,11 @@ class DetailPagoAdminViewController: UIViewController {
             let descripcion = descripcionField.text,
             let precio = precioField.text,
             let diaPago = diaPagoField.text
-            else {return}
-
+            else{
+            self.crearAlerta(mensaje: "Todos los campos son requeridos")
+            return
+    }
+    
       
        let pago = Pago(
             comunidad:"asadas",
@@ -53,10 +56,10 @@ class DetailPagoAdminViewController: UIViewController {
             fecha: NSDate(timeIntervalSince1970: NSDate().timeIntervalSince1970) as Date
        )
 
-       pagoReference?.setData(pago.diccionario, completion: { (error) in
-       if let error = error{
-           print("Error agregando nuevo aviso: \(error)")
-       } else {
+       pagoReference?.setData(pago.diccionario, completion: { (err) in
+        if let err = err{
+            self.crearAlerta(mensaje: "No se puedo crear el usuario \(err.localizedDescription)")
+        } else {
            print("Document updated")
        }
    })
@@ -67,16 +70,14 @@ class DetailPagoAdminViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func crearAlerta(mensaje: String){
+        let alert = UIAlertController(title: "Advertencia", message: mensaje, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
-    */
+    
     @IBAction func dismissKeyboard(_ sender: Any) {
         conceptoField.resignFirstResponder()
         descripcionField.endEditing(false)

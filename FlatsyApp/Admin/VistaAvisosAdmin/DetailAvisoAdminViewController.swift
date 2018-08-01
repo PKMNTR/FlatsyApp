@@ -17,6 +17,7 @@ class DetailAvisoAdminViewController: UIViewController {
     @IBOutlet weak var tituloField: UITextField!
     @IBOutlet weak var descripcionField: UITextView!
     @IBOutlet weak var fechaField: UIDatePicker!
+    @IBOutlet weak var selectTipoAviso: UISegmentedControl!
     
     let defaults = UserDefaults.standard
 
@@ -27,6 +28,14 @@ class DetailAvisoAdminViewController: UIViewController {
         descripcionField!.layer.borderColor = UIColor.gray.cgColor
         tituloField.text = aviso?.titulo
         descripcionField.text = aviso?.descripcion
+        if let junta = aviso?.junta{
+            if junta {
+                selectTipoAviso.selectedSegmentIndex = 0
+            }
+            else{
+                selectTipoAviso.selectedSegmentIndex = 1
+            }
+        }
         if let fecha = aviso?.fecha{
              fechaField.setDate(fecha, animated: true)
         }
@@ -40,21 +49,31 @@ class DetailAvisoAdminViewController: UIViewController {
        guard let titulo = tituloField.text,
            let descripcion = descripcionField.text,
            let fecha = fechaField?.date.timeIntervalSince1970
-           else {return}
+            else{
+            self.crearAlerta(mensaje: "Todos los campos son requeridos")
+            return
+        }
+        let tipo = selectTipoAviso.selectedSegmentIndex
+        var junta: Bool
+        if tipo == 0{
+            junta = true
+        } else{
+            junta = false
+        }
     
-    let comunidad = defaults.object(forKey: "comunidad") as! String
+        let comunidad = defaults.object(forKey: "comunidad") as! String
        
-       let aviso = Aviso(
+        let aviso = Aviso(
            comunidad: comunidad,
            descripcion: descripcion,
            fecha: NSDate(timeIntervalSince1970: fecha) as Date,
            titulo: titulo,
-           junta: true
+           junta: junta
        )
 
-    avisoReference?.setData(aviso.diccionario, completion: { (error) in
-        if let error = error{
-            print("Error agregando nuevo aviso: \(error)")
+    avisoReference?.setData(aviso.diccionario, completion: { (err) in
+        if let err = err{
+            self.crearAlerta(mensaje: "No se puedo crear el usuario \(err.localizedDescription)")
         } else {
             print("Document updated")
         }
@@ -67,15 +86,13 @@ class DetailAvisoAdminViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func crearAlerta(mensaje: String){
+        let alert = UIAlertController(title: "Advertencia", message: mensaje, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
-    */
 
     @IBAction func dismissKeyboard(_ sender: Any) {
         tituloField.resignFirstResponder()

@@ -35,12 +35,11 @@ class DatosUsuarioViewController: UIViewController {
             }
 
             if !(telefono.count == 8 || telefono.count == 10){
-                print("error en tel")
+                self.crearAlerta(mensaje: "Numero de telefono invalido")
+                telefonoField.text = ""
                 return
             }
 
-        
-        
             self.defaults.set(nombre, forKey: "nombre")
             let uid = self.defaults.object(forKey: "UID") as! String
             let email = self.defaults.object(forKey: "email") as! String
@@ -55,8 +54,8 @@ class DatosUsuarioViewController: UIViewController {
                 "email": email,
                 "comunidad": comunidad
             ]) { err in
-                if err != nil{
-                    print("Error agregando documento")
+                if let err = err{
+                    self.crearAlerta(mensaje: "No se puedo crear el usuario \(err.localizedDescription)")
                 }
                 else {
                     self.goToNextScreen()
@@ -74,16 +73,13 @@ class DatosUsuarioViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func crearAlerta(mensaje: String){
+        let alert = UIAlertController(title: "Advertencia", message: mensaje, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
-    */
 }
 
 extension DatosUsuarioViewController: UITextFieldDelegate{

@@ -14,7 +14,7 @@ class AddAvisoViewController: UIViewController {
     @IBOutlet weak var tituloField: UITextField!
     @IBOutlet weak var descripcionField: UITextView!
     @IBOutlet weak var fechaField: UIDatePicker!
-    @IBOutlet weak var juntaSwitch: UISwitch!
+    @IBOutlet weak var selectTipoAviso: UISegmentedControl!
     
     var ref: DocumentReference! = nil
     
@@ -31,12 +31,21 @@ class AddAvisoViewController: UIViewController {
         guard let titulo = tituloField.text,
             let descripcion = descripcionField.text,
             let fecha = fechaField?.date.timeIntervalSince1970
-            else {return}
+            else{
+                self.crearAlerta(mensaje: "Todos los campos son requeridos")
+                return
+        }
         
         let comunidad = defaults.object(forKey: "comunidad") as! String
 
         let collection = Firestore.firestore().collection("comunicados")
-        let junta = juntaSwitch.isOn
+        let tipo = selectTipoAviso.selectedSegmentIndex
+        var junta: Bool
+        if tipo == 0{
+            junta = true
+        } else{
+            junta = false
+        }
 
         let aviso = Aviso(
             comunidad: comunidad,
@@ -48,22 +57,21 @@ class AddAvisoViewController: UIViewController {
 
         ref = collection.addDocument(data: aviso.diccionario){ err in
             if let err = err{
-                print("Error agregando nuevo aviso: \(err)")
+                self.crearAlerta(mensaje: "No se puedo crear el usuario \(err.localizedDescription)")
             } else {
                 print("Document added with ID: \(self.ref!.documentID)")
             } 
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func crearAlerta(mensaje: String){
+        let alert = UIAlertController(title: "Advertencia", message: mensaje, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
-    */
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -140,9 +140,7 @@ class LoginScreenViewController: UIViewController {
                 }
                 else{
                     if let error = error?.localizedDescription{
-                        print("Error al iniciar sesion por firebase", error)
-                    }else{
-                        print("Tu eres el error de sesion")
+                       self.crearAlerta(mensaje: error)
                     }
                 }
             }
@@ -156,8 +154,6 @@ class LoginScreenViewController: UIViewController {
                 if user != nil{
                     print("se creo el usuario")
                     
-                    // let values = ["name": email]
-                    
                     guard let uid = user?.uid,
                         let email = user?.email else{
                         return
@@ -168,22 +164,9 @@ class LoginScreenViewController: UIViewController {
                     defaults.set(email, forKey: "email")
 
                     self.goToNextScreen(identifier: "CodigoComunidad")
-
-                    // let userReference = self.ref.child("users").child(uid)
-                    
-                    // userReference.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                    //     if error != nil {
-                    //         print("errror al instertar datos")
-                    //         return
-                    //     }else{
-                    //         print("dato guardado en BD")
-                    //     }
-                    // })
                 }else{
                     if let error = error?.localizedDescription{
-                        print("Error al crear el usuario", error)
-                    }else{
-                        print("tu eres el error :v")
+                        self.crearAlerta(mensaje: error)
                     }
                 }
             }
@@ -194,12 +177,14 @@ class LoginScreenViewController: UIViewController {
         performSegue(withIdentifier: identifier, sender: self)
     }
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    // override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    
+    func crearAlerta(mensaje: String){
+        let alert = UIAlertController(title: "Advertencia", message: mensaje, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         
-    // }
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension LoginScreenViewController: UITextFieldDelegate{

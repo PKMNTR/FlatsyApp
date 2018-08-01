@@ -32,7 +32,10 @@ class AddPagoViewController: UIViewController {
             let descripcion = descripcionField.text,
             let precio = precioField.text,
             let diaPago = diaPagoField.text
-            else {return}
+            else{
+                self.crearAlerta(mensaje: "Todos los campos son requeridos")
+                return
+        }
 
         let collection = Firestore.firestore().collection("pagos")
         
@@ -50,22 +53,21 @@ class AddPagoViewController: UIViewController {
 
         ref = collection.addDocument(data: pago.diccionario){ err in
             if let err = err{
-                print("Error agregando nuevo aviso: \(err)")
+                self.crearAlerta(mensaje: "No se puedo crear el usuario \(err.localizedDescription)")
             } else {
                 print("Document added with ID: \(self.ref!.documentID)")
             }
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func crearAlerta(mensaje: String){
+        let alert = UIAlertController(title: "Advertencia", message: mensaje, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
-    */
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

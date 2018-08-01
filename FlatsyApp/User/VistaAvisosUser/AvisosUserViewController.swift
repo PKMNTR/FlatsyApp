@@ -50,13 +50,13 @@ class AvisosUserViewController: UIViewController {
     
     func baseQueryAvisos()->Query{
         let comunidad = defaults.object(forKey: "comunidad") as! String
-        return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: true)
+        return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: false)
             .whereField("comunidad", isEqualTo: comunidad)
     }
     
     func baseQueryJuntas()->Query{
         let comunidad = defaults.object(forKey: "comunidad") as! String
-        return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: false)
+        return Firestore.firestore().collection("comunicados").whereField("junta", isEqualTo: true)
             .whereField("comunidad", isEqualTo: comunidad)
     }
 

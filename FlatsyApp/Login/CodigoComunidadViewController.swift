@@ -31,10 +31,18 @@ class CodigoComunidadViewController: UIViewController {
                 self.defaults.set(self.codigoField.text, forKey: "comunidad")
                 self.goToNextScreen()
             } else {
-                print("No existe la comunidad")
+                self.crearAlerta(mensaje: "No existe la comunidad")
                 self.codigoField.text = ""
             }
         }
+    }
+    
+    func crearAlerta(mensaje: String){
+        let alert = UIAlertController(title: "Advertencia", message: mensaje, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func goToNextScreen(){

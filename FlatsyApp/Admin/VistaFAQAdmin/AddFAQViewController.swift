@@ -29,7 +29,11 @@ class AddFAQViewController: UIViewController {
     {
         guard let pregunta = preguntaField.text,
             let respuesta = respuestaField.text
-            else {return}
+            else{
+                self.crearAlerta(mensaje: "Todos los campos son requeridos")
+                return
+        }
+        
 
         let collection = Firestore.firestore().collection("faq")
         
@@ -43,22 +47,21 @@ class AddFAQViewController: UIViewController {
 
         ref = collection.addDocument(data: preguntaModel.diccionario){ err in
             if let err = err{
-                print("Error agregando nueva pregunta: \(err)")
+                self.crearAlerta(mensaje: "No se puedo crear el usuario \(err.localizedDescription)")
             } else {
                 print("Document added with ID: \(self.ref!.documentID)")
             } 
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func crearAlerta(mensaje: String){
+        let alert = UIAlertController(title: "Advertencia", message: mensaje, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
-    */
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
