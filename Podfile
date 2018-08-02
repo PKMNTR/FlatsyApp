@@ -10,6 +10,7 @@ target 'FlatsyApp' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'lottie-ios'
 
   target 'FlatsyAppTests' do
     inherit! :search_paths

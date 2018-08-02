@@ -70,7 +70,7 @@ class PagosAdminViewController: UIViewController {
             self.pagos = results
             self.documents = snapshot.documents
             
-            self.pagos = self.pagos.sorted(by: {$0.fecha.timeIntervalSince1970 > $1.fecha.timeIntervalSince1970})
+//            self.pagos = self.pagos.sorted(by: {$0.fecha.timeIntervalSince1970 > $1.fecha.timeIntervalSince1970})
             
             self.pagosTable.reloadData()
         }

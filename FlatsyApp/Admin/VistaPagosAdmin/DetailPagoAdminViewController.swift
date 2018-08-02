@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Lottie
 
 class DetailPagoAdminViewController: UIViewController {
 
@@ -17,16 +18,25 @@ class DetailPagoAdminViewController: UIViewController {
     @IBOutlet weak var descripcionField: UITextView!
     @IBOutlet weak var precioField: UITextField!
     @IBOutlet weak var diaPagoField: UITextField!
+    @IBOutlet weak var animView: UIView!
+    
+    var animationView: LOTAnimationView?
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descripcionField!.layer.borderWidth = 1
-        descripcionField!.layer.borderColor = UIColor.gray.cgColor
-       conceptoField.text = pago?.concepto
-       descripcionField.text = pago?.descripcion
-       precioField.text = pago?.precio.description
-       diaPagoField.text = pago?.dia_pago.description
+        animationView = LOTAnimationView(name: "success")
+        animationView!.frame = CGRect(x: 0, y: 0, width: 75, height: 75)
+        animView.addSubview(animationView!)
+        
+        descripcionField!.layer.borderWidth = 0.25
+        descripcionField!.layer.borderColor = UIColor.lightGray.cgColor
+        conceptoField.text = pago?.concepto
+        descripcionField.text = pago?.descripcion
+        precioField.text = pago?.precio.description
+        diaPagoField.text = pago?.dia_pago.description
     //    if let fecha = pago?.fecha{
     //         fechaField.setDate(fecha, animated: true)
     //    }
@@ -45,9 +55,10 @@ class DetailPagoAdminViewController: UIViewController {
             return
     }
     
+        let comunidad = defaults.object(forKey: "comunidad") as! String
       
        let pago = Pago(
-            comunidad:"asadas",
+            comunidad: comunidad,
             concepto: concepto,
             dia_pago: Int(diaPago)!,
             precio: Double(precio)!,
@@ -60,7 +71,10 @@ class DetailPagoAdminViewController: UIViewController {
         if let err = err{
             self.crearAlerta(mensaje: "No se puedo crear el usuario \(err.localizedDescription)")
         } else {
-           print("Document updated")
+            self.animView.isHidden = false
+            self.animationView!.play(){ (finished) in
+                self.navigationController?.popViewController(animated: true)
+            }
        }
    })
     }

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Lottie
 
 class LoginScreenViewController: UIViewController {
 
@@ -16,6 +17,9 @@ class LoginScreenViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var loginLabel: UILabel!
     @IBOutlet weak var loginText: UILabel!
+    @IBOutlet weak var animView: UIView!
+    
+    var animationView: LOTAnimationView?
     
     var signin: Bool = true
 
@@ -53,11 +57,14 @@ class LoginScreenViewController: UIViewController {
                         
                         let condicion = admin as! Bool
                         
-                        if condicion{
-                            self.goToNextScreen(identifier: "LoginShowAdmin")
-                        }
-                        else{
-                            self.goToNextScreen(identifier: "LoginShowUser")
+                        self.animView.isHidden = false
+                        self.animationView!.play(){ (finished) in
+                                if condicion{
+                                    self.goToNextScreen(identifier: "LoginShowAdmin")
+                                }
+                                else{
+                                    self.goToNextScreen(identifier: "LoginShowUser")
+                                }
                         }
                     } else {
                         print("Document does not exist")
@@ -70,11 +77,17 @@ class LoginScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        animationView = LOTAnimationView(name: "success")
+        animationView!.frame = CGRect(x: 0, y: 0, width: 75, height: 75)
+        animView.addSubview(animationView!)
+        
         passwordField.delegate = self
         emailField.delegate = self
     }
 
     @IBAction func onTapSendButton(){
+        emailField.resignFirstResponder()
+        passwordField.resignFirstResponder()
         if self.signin == true{
             registerUser()
         }
@@ -127,11 +140,14 @@ class LoginScreenViewController: UIViewController {
                             self.defaults.set(nombre, forKey: "nombre")
                             self.defaults.set(comunidad, forKey: "comunidad")
                             
-                            if condition {
-                                self.goToNextScreen(identifier: "LoginShowAdmin")
-                            }
-                            else{
-                                self.goToNextScreen(identifier: "LoginShowUser")
+                            self.animView.isHidden = false
+                            self.animationView!.play(){ (finished) in
+                                if condition{
+                                    self.goToNextScreen(identifier: "LoginShowAdmin")
+                                }
+                                else{
+                                    self.goToNextScreen(identifier: "LoginShowUser")
+                                }
                             }
                         } else {
                             print("Document does not exist")

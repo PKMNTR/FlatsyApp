@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Lottie
 
 class AddPagoViewController: UIViewController {
 
@@ -15,13 +16,21 @@ class AddPagoViewController: UIViewController {
     @IBOutlet weak var descripcionField: UITextView!
     @IBOutlet weak var precioField: UITextField!
     @IBOutlet weak var diaPagoField: UITextField!
+    @IBOutlet weak var animView: UIView!
+    
+    var animationView: LOTAnimationView?
     
     var ref: DocumentReference! = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        descripcionField!.layer.borderWidth = 1
-        descripcionField!.layer.borderColor = UIColor.gray.cgColor
+        
+        animationView = LOTAnimationView(name: "success")
+        animationView!.frame = CGRect(x: 0, y: 0, width: 75, height: 75)
+        animView.addSubview(animationView!)
+        
+        descripcionField!.layer.borderWidth = 0.25
+        descripcionField!.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     let defaults = UserDefaults.standard
@@ -55,7 +64,10 @@ class AddPagoViewController: UIViewController {
             if let err = err{
                 self.crearAlerta(mensaje: "No se puedo crear el usuario \(err.localizedDescription)")
             } else {
-                print("Document added with ID: \(self.ref!.documentID)")
+                self.animView.isHidden = false
+                self.animationView!.play(){ (finished) in
+                    self.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }

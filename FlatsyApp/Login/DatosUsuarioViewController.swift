@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Lottie
 
 class DatosUsuarioViewController: UIViewController {
 
@@ -15,13 +16,20 @@ class DatosUsuarioViewController: UIViewController {
     @IBOutlet weak var apellidosField: UITextField!
     @IBOutlet weak var telefonoField: UITextField!
     @IBOutlet weak var viviendaField: UITextField!
+    @IBOutlet weak var animView: UIView!
 
     var db: Firestore!
     
     let defaults = UserDefaults.standard
+    
+    var animationView : LOTAnimationView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        animationView = LOTAnimationView(name: "success")
+        animationView!.frame = CGRect(x: 0, y: 0, width: 75, height: 75)
+        animView.addSubview(animationView!)
 
         db = Firestore.firestore()
     }
@@ -58,8 +66,11 @@ class DatosUsuarioViewController: UIViewController {
                     self.crearAlerta(mensaje: "No se puedo crear el usuario \(err.localizedDescription)")
                 }
                 else {
-                    self.goToNextScreen()
-                    print("exito")
+                    self.animView.isHidden = false
+                    self.animationView!.play(){ (finished) in
+                        self.goToNextScreen()
+                        print("exito")
+                    }
                 }
             }
     }

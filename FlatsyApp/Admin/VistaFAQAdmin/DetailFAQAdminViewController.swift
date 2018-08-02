@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Lottie
 
 class DetailFAQAdminViewController: UIViewController {
 
@@ -16,15 +17,24 @@ class DetailFAQAdminViewController: UIViewController {
 //
     @IBOutlet weak var preguntaField: UITextField!
     @IBOutlet weak var respuestaField: UITextView!
+    @IBOutlet weak var animView: UIView!
+    
+    var animationView: LOTAnimationView?
+    
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        animationView = LOTAnimationView(name: "success")
+        animationView!.frame = CGRect(x: 0, y: 0, width: 75, height: 75)
+        animView.addSubview(animationView!)
+        
         preguntaField.text = pregunta?.pregunta
         respuestaField.text = pregunta?.respuesta
         
-        respuestaField!.layer.borderWidth = 1
-        respuestaField!.layer.borderColor = UIColor.gray.cgColor
+        respuestaField!.layer.borderWidth = 0.25
+        respuestaField!.layer.borderColor = UIColor.lightGray.cgColor
        
         // Do any additional setup after loading the view.
     }
@@ -36,21 +46,24 @@ class DetailFAQAdminViewController: UIViewController {
         else{
             self.crearAlerta(mensaje: "Todos los campos son requeridos")
             return
-    }
+        }
     
-
-       
-       let preguntaModel = Pregunta(
-           comunidad:"asadas",
+        let comunidad = defaults.object(forKey: "comunidad") as! String
+    
+        let preguntaModel = Pregunta(
+           comunidad: comunidad,
            pregunta: pregunta,
            respuesta: respuesta
-       )
+        )
 
-    preguntaReference?.setData(preguntaModel.diccionario, completion: { (err) in
+        preguntaReference?.setData(preguntaModel.diccionario, completion: { (err) in
         if let err = err{
             self.crearAlerta(mensaje: "No se puedo crear el usuario \(err.localizedDescription)")
         } else {
-            print("Document updated")
+            self.animView.isHidden = false
+            self.animationView!.play(){ (finished) in
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     })
     }

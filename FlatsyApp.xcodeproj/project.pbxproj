@@ -19,6 +19,7 @@
 		A56024A020FC155600374AE6 /* AvisosAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560249C20FC155600374AE6 /* AvisosAdminViewController.swift */; };
 		A56024A120FC155600374AE6 /* DetailAvisoAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560249D20FC155600374AE6 /* DetailAvisoAdminViewController.swift */; };
 		A56024A220FC155600374AE6 /* AddAvisoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560249E20FC155600374AE6 /* AddAvisoViewController.swift */; };
+		A56A1F0B2112B60D0006AD97 /* success.json in Resources */ = {isa = PBXBuildFile; fileRef = A56A1F0A2112B60D0006AD97 /* success.json */; };
 		A5872AF320FD94E00027582B /* Pago.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5872AF120FD94E00027582B /* Pago.swift */; };
 		A5872AF420FD94E00027582B /* Aviso.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5872AF220FD94E00027582B /* Aviso.swift */; };
 		A5872AF920FD95160027582B /* DetailPagoAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5872AF520FD95150027582B /* DetailPagoAdminViewController.swift */; };
@@ -87,6 +88,7 @@
 		A560249C20FC155600374AE6 /* AvisosAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvisosAdminViewController.swift; sourceTree = "<group>"; };
 		A560249D20FC155600374AE6 /* DetailAvisoAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailAvisoAdminViewController.swift; sourceTree = "<group>"; };
 		A560249E20FC155600374AE6 /* AddAvisoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAvisoViewController.swift; sourceTree = "<group>"; };
+		A56A1F0A2112B60D0006AD97 /* success.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = success.json; sourceTree = "<group>"; };
 		A5872AF120FD94E00027582B /* Pago.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pago.swift; sourceTree = "<group>"; };
 		A5872AF220FD94E00027582B /* Aviso.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Aviso.swift; sourceTree = "<group>"; };
 		A5872AF520FD95150027582B /* DetailPagoAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailPagoAdminViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A56A1F092112B5C40006AD97 /* LottieAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				A56A1F0A2112B60D0006AD97 /* success.json */,
+			);
+			path = LottieAnimation;
+			sourceTree = "<group>";
+		};
 		A5A0685B20E9F0D20082D44E = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +291,7 @@
 		A5A0686620E9F0D20082D44E /* FlatsyApp */ = {
 			isa = PBXGroup;
 			children = (
+				A56A1F092112B5C40006AD97 /* LottieAnimation */,
 				A5F1E13D2103C3630014263C /* Login */,
 				A559D8E420FB112900E02955 /* Models */,
 				A507B0C220F5C89C00F922BC /* User */,
@@ -462,6 +473,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A56A1F0B2112B60D0006AD97 /* success.json in Resources */,
 				A5A0687220E9F0D30082D44E /* LaunchScreen.storyboard in Resources */,
 				A559D8E820FB20D600E02955 /* GoogleService-Info.plist in Resources */,
 				A5A0686F20E9F0D30082D44E /* Assets.xcassets in Resources */,
@@ -538,6 +550,7 @@
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/lottie-ios/Lottie.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -551,6 +564,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lottie.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
