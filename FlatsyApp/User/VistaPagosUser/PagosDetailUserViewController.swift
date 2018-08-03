@@ -16,14 +16,20 @@ class PagosDetailUserViewController: UIViewController {
     @IBOutlet weak var descripcionLabel: UILabel!
     @IBOutlet weak var precioLabel: UILabel!
     @IBOutlet weak var diaPagoLabel: UILabel!
+    @IBOutlet weak var diasRestantesLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        conceptoLabel.text = pago?.concepto
-        descripcionLabel.text = pago?.descripcion
-        precioLabel.text = pago?.precio.description
-        diaPagoLabel.text = pago?.dia_pago.description
+        guard let pagoLocal = pago else {return}
+        
+        conceptoLabel.text = pagoLocal.concepto
+        descripcionLabel.text = pagoLocal.descripcion
+        descripcionLabel.sizeToFit()
+        precioLabel.text = "$" + pagoLocal.precio.description + " MXN"
+        diaPagoLabel.text = pagoLocal.dia_pago.description + " de cada mes"
+        let dia = calculaDiasPago(diaPago: pagoLocal.dia_pago)
+        diasRestantesLabel.text = "Restan " + dia.description + " dias para el pago"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,6 +39,23 @@ class PagosDetailUserViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func calculaDiasPago(diaPago: Int) -> Int{
+        let calendar = Calendar.current
+        let date = Date()
+        
+        let currentDay = calendar.component(.day, from: date)
+        let interval = calendar.dateInterval(of: .month, for: date)!
+        let days = calendar.dateComponents([.day], from: interval.start, to: interval.end).day!
+        print(days)
+        if diaPago == currentDay{
+            return 0
+        }else if diaPago > currentDay{
+            return diaPago - currentDay
+        } else{
+            return ((days - currentDay) + diaPago)
+        }
     }
     
 
@@ -47,3 +70,4 @@ class PagosDetailUserViewController: UIViewController {
     */
 
 }
+

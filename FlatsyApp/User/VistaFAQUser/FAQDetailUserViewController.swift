@@ -20,6 +20,7 @@ class FAQDetailUserViewController: UIViewController {
 
         preguntaLabel.text = pregunta?.pregunta
         respuestaLabel.text = pregunta?.respuesta
+        respuestaLabel.sizeToFit()
     }
 
     override func didReceiveMemoryWarning() {

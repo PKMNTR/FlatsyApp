@@ -17,8 +17,8 @@ class MiembrosTableViewCell: UITableViewCell {
     func rellenar(miembro: Miembro){
         nombreLabel.text = miembro.nombre + " " + miembro.apellidos
         nombreLabel.sizeToFit()
-        telefonoLabel.text = miembro.telefono
-        numeroLabel.text = miembro.numero_vivienda
+        telefonoLabel.text = "Telefono: " + miembro.telefono
+        numeroLabel.text = "Numero de casa: " + miembro.numero_vivienda
     }
 
     override func awakeFromNib() {

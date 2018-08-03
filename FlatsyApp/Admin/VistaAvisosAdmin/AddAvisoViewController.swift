@@ -67,11 +67,11 @@ class AddAvisoViewController: UIViewController {
             if let err = err{
                 self.crearAlerta(mensaje: "No se puedo crear el usuario \(err.localizedDescription)")
             } else {
-                self.animView.isHidden = false
-                self.animationView!.play(){ (finished) in
+//                self.animView.isHidden = false
+//                self.animationView!.play(){ (finished) in
                     self.navigationController?.popViewController(animated: true)
-                }
-            } 
+//                }
+            }
         }
     }
 

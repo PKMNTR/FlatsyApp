@@ -14,6 +14,8 @@
 		A507B0CC20F5CC1D00F922BC /* PagosUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0CB20F5CC1D00F922BC /* PagosUserTableViewCell.swift */; };
 		A507B0CF20F5CCA800F922BC /* FAQUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0CE20F5CCA800F922BC /* FAQUserTableViewCell.swift */; };
 		A507B0D120F5CCE000F922BC /* FAQUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A507B0D020F5CCE000F922BC /* FAQUserViewController.swift */; };
+		A50BED072114087D0045BE9F /* UserTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50BED062114087D0045BE9F /* UserTabBarController.swift */; };
+		A50BED0921140B3C0045BE9F /* AdminTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50BED0821140B3C0045BE9F /* AdminTabBarController.swift */; };
 		A559D8E820FB20D600E02955 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A559D8E720FB20D600E02955 /* GoogleService-Info.plist */; };
 		A560249F20FC155600374AE6 /* AvisosAdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560249B20FC155600374AE6 /* AvisosAdminTableViewCell.swift */; };
 		A56024A020FC155600374AE6 /* AvisosAdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560249C20FC155600374AE6 /* AvisosAdminViewController.swift */; };
@@ -83,6 +85,8 @@
 		A507B0CB20F5CC1D00F922BC /* PagosUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagosUserTableViewCell.swift; sourceTree = "<group>"; };
 		A507B0CE20F5CCA800F922BC /* FAQUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQUserTableViewCell.swift; sourceTree = "<group>"; };
 		A507B0D020F5CCE000F922BC /* FAQUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAQUserViewController.swift; sourceTree = "<group>"; };
+		A50BED062114087D0045BE9F /* UserTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTabBarController.swift; sourceTree = "<group>"; };
+		A50BED0821140B3C0045BE9F /* AdminTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTabBarController.swift; sourceTree = "<group>"; };
 		A559D8E720FB20D600E02955 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A560249B20FC155600374AE6 /* AvisosAdminTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvisosAdminTableViewCell.swift; sourceTree = "<group>"; };
 		A560249C20FC155600374AE6 /* AvisosAdminViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvisosAdminViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +206,7 @@
 				A507B0B220F5C04000F922BC /* VistaPagosAdmin */,
 				A507B0B720F5C2F900F922BC /* VistaFAQAdmin */,
 				A507B0BC20F5C42900F922BC /* VistaMiembros */,
+				A50BED0821140B3C0045BE9F /* AdminTabBarController.swift */,
 			);
 			path = Admin;
 			sourceTree = "<group>";
@@ -213,6 +218,7 @@
 				A507B0CD20F5CC6100F922BC /* VistaFAQUser */,
 				A507B0C820F5CA9F00F922BC /* VistaPagosUser */,
 				A507B0C320F5C91C00F922BC /* VistaAvisosUser */,
+				A50BED062114087D0045BE9F /* UserTabBarController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -602,6 +608,7 @@
 				A5FBEA3421004E9100B4EAF0 /* FAQAdminTableViewCell.swift in Sources */,
 				A507B0C520F5C9C100F922BC /* AvisosUserTableViewCell.swift in Sources */,
 				A56024A120FC155600374AE6 /* DetailAvisoAdminViewController.swift in Sources */,
+				A50BED0921140B3C0045BE9F /* AdminTabBarController.swift in Sources */,
 				A5FBEA3621004E9100B4EAF0 /* DetailFAQAdminViewController.swift in Sources */,
 				A5AA857E21056FD800D97DCB /* FAQDetailUserViewController.swift in Sources */,
 				A5AA857C21056F4700D97DCB /* DashboardUserViewController.swift in Sources */,
@@ -619,6 +626,7 @@
 				A560249F20FC155600374AE6 /* AvisosAdminTableViewCell.swift in Sources */,
 				A5872AFC20FD95160027582B /* PagosAdminViewController.swift in Sources */,
 				A5AA85822105708000D97DCB /* AvisosDetailUserViewController.swift in Sources */,
+				A50BED072114087D0045BE9F /* UserTabBarController.swift in Sources */,
 				A5FBEA3921004EB200B4EAF0 /* MiembrosViewController.swift in Sources */,
 				A5872AF920FD95160027582B /* DetailPagoAdminViewController.swift in Sources */,
 				A5872AF420FD94E00027582B /* Aviso.swift in Sources */,

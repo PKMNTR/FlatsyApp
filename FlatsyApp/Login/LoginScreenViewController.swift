@@ -102,13 +102,13 @@ class LoginScreenViewController: UIViewController {
         if self.signin == true{
             selectForm.setTitle("Inscribete", for: .normal)
             loginText.text = "¿Aun no tienes cuenta?"
-            loginLabel.text = "Inicia Sesion"
+            loginLabel.text = "INICIA SESION"
             self.signin = false
         }
         else{
             selectForm.setTitle("Inicia sesion", for: .normal)
             loginText.text = "¿Ya tienes cuenta?"
-            loginLabel.text = "Inscribete"
+            loginLabel.text = "INSCRIBETE"
             self.signin = true
         }
     }
