@@ -64,7 +64,7 @@ class DetailPagoAdminViewController: UIViewController {
             precio: Double(precio)!,
             descripcion: descripcion,
             recurrente: true,
-            fecha: NSDate(timeIntervalSince1970: NSDate().timeIntervalSince1970) as Date
+            fecha: Date()
        )
 
        pagoReference?.setData(pago.diccionario, completion: { (err) in

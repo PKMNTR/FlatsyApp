@@ -57,7 +57,7 @@ class AddPagoViewController: UIViewController {
             precio: Double(precio)!,
             descripcion: descripcion,
             recurrente: true,
-            fecha: NSDate(timeIntervalSince1970: NSDate().timeIntervalSince1970) as Date
+            fecha: Date()
         )
 
         ref = collection.addDocument(data: pago.diccionario){ err in
